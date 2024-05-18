@@ -5,16 +5,19 @@ import { SubjectTeacherService } from '../../../services/subject-teacher.service
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { NzProgressModule } from 'ng-zorro-antd/progress';
 
 @Component({
   selector: 'app-subject-details',
   standalone: true,
-  imports: [NzIconModule , RouterModule , FormsModule , CommonModule , NzTableModule],
+  imports: [NzIconModule , RouterModule , FormsModule , CommonModule , NzTableModule , MatExpansionModule , NzProgressModule ],
   templateUrl: './subject-details.component.html',
   styleUrl: './subject-details.component.scss'
 })
 export class SubjectDetailsComponent implements OnInit{
 
+  panelOpenState: any[] = [];
   teacherId: any = '';
   subjectId: any = '';
   subjectName: any = '';
@@ -191,11 +194,69 @@ export class SubjectDetailsComponent implements OnInit{
       {label: 'Due Date' , variable: 'dueDate' , width: '150px'},
       {label: 'Upload' , variable: 'uploadLink' , width: '80px' , class: 'text-center' },
       {label: 'Attachments' , variable: 'downloadLink' , width: '100px' , class: 'text-center' },
+    ],
+    submissionColumn: [
+      {label: 'Sr.' , variable: 'Sr.' , width: '50px',class:'text-center'},
+      {label: 'Submission Name' , variable: 'submissionName' , width: '200px' , class: 'font-semibold' },
+      {label: 'Description' , variable: 'submissionDescription'},
+      {label: 'Start Date' , variable: 'startDate' , width: '150px'},
+      {label: 'End Date' , variable: 'endDate' , width: '150px'},
+      {label: 'Attachment' , variable: 'downloadLink' , width: '100px' , class: 'text-center' },
+      {label: 'Upload' , variable: 'uploadLink' , width: '80px' , class: 'text-center' },
+    ],
+    gradeColumn: [
+      {label: 'Assessment Name' , variable: 'assessmentName' , width: '200px' , class: 'font-semibold' },
+      {label: 'Total Marks' , variable: 'totalMarks' ,  class: 'text-center'},
+      {label: 'Obtained Marks' , variable: 'obtainedMarks' ,  class: 'text-center'},
+      {label: 'Class Average' , variable: 'classAverage' ,  class: 'text-center'},
+      {label: 'Percentage' , variable: 'obtainedPercentage' , class: 'text-center' },
     ]
   };
   assessmentData: any[] = [
     { assessmentName: 'CP-01' , assessmentDescription: 'None' , assessmentDate: new Date() , dueDate: new Date() , uploadLink: 'None' , downloadLink: 'None' }
   ];
+  submissionData: any[] = [
+    { submissionName: 'Assignment 1' , submissionDescription: 'No Extension in Submission will be entertained.' , startDate: new Date() , endDate: new Date() , downloadLink: 'None' , uploadLink: 'None' }
+  ]
+  gradeBookData: any = {
+    classAverage: 83,
+    coursePercentage: 96,
+    courseGrade: 'A+',
+    assignment: [
+      {
+        assessmentName: 'Assignment 1' , totalMarks: 70 , obtainedMarks: 60 , classAverage: 55.2 , obtainedPercentage: 85.65
+      },
+      {
+        assessmentName: 'Assignment 2' , totalMarks: 100 , obtainedMarks: 90 , classAverage: 80.9 , obtainedPercentage:90
+      },
+    ],
+    quiz: [
+      {
+        assessmentName: 'Quiz 1' , totalMarks: 20 , obtainedMarks: 18 , classAverage: 12.25 , obtainedPercentage: 80
+      },
+      {
+        assessmentName: 'Quiz 2' , totalMarks: 30 , obtainedMarks: 25 , classAverage: 27 , obtainedPercentage: 83
+      },
+    ],
+    midTerm: [
+      {
+        assessmentName: 'Mid Term' , totalMarks: 50 , obtainedMarks: 48 , classAverage: 35 , obtainedPercentage: 96
+      },
+    ],
+    classParticipation: [
+      {
+        assessmentName: 'CP 1' , totalMarks: 10 , obtainedMarks: 10 , classAverage: 8.5 , obtainedPercentage: 100
+      },
+      {
+        assessmentName: 'CP 2' , totalMarks: 10 , obtainedMarks: 10 , classAverage: 9 , obtainedPercentage: 100
+      },
+    ],
+    finalTerm: [
+      {
+        assessmentName: 'Final Term' , totalMarks: 60 , obtainedMarks: 60 , classAverage: 51.2 , obtainedPercentage: 100
+      },
+    ]
+  }
   constructor(
     private activatedRoute: ActivatedRoute,
     private subjectTeacherService: SubjectTeacherService

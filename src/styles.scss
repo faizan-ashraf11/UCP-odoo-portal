@@ -71,5 +71,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --tw-bg-opa
 
   /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-        background: #555;
+        background: #5c82ff;
     }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

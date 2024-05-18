@@ -19,6 +19,7 @@
             <div class="p-2 !pb-0 text-black  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex" (click)="selectedTab = tab?.tab;" [ngClass]="{'tabChange': selectedTab == tab?.tab}">{{tab?.tabName}}</div>
           </div>
         </div>
+        <!-- Announcement Area -->
         <div class="p-3 tableWrap" *ngIf="selectedTab == 1">
           <nz-table #basicTable [nzData]="announcementData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full">
             <thead>
@@ -40,7 +41,7 @@
                       <td  [class]="col?.class">{{i+1}}</td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'date'">
-                      <td [class]="col?.class">{{data?.date | date}}</td>
+                      <td [class]="col?.class">{{data?.date | date:'short' }}</td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'attachmentFile'">
                       <td [class]="col?.class">
@@ -56,6 +57,7 @@
             </tbody>
           </nz-table>
         </div>
+        <!-- Course Outline Area -->
         <div class="p-3" *ngIf="selectedTab == 2">
           <div class="flex flex-col border rounded-md shadow-md p-4 calculateInnerCardHeight overflow-auto gap-3">
             <div class="gap-2 flex flex-col">
@@ -198,6 +200,7 @@
             </div>
           </div>
         </div>
+        <!-- Course Material Area -->
         <div class="p-3 tableWrap" *ngIf="selectedTab == 3">
           <nz-table #basicTable [nzData]="courseMaterialData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full">
             <thead>
@@ -232,6 +235,7 @@
             </tbody>
           </nz-table>
         </div>
+        <!-- Assessment Area -->
         <div class="p-3 tableWrap" *ngIf="selectedTab == 4">
           <nz-table #basicTable [nzData]="assessmentData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full">
             <thead>
@@ -264,10 +268,10 @@
                       </td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'assessmentDate'">
-                      <td [class]="col?.class">{{data?.assessmentDate | date}}</td>
+                      <td [class]="col?.class">{{data?.assessmentDate | date:'short' }}</td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'dueDate'">
-                      <td [class]="col?.class">{{data?.dueDate | date}}</td>
+                      <td [class]="col?.class">{{data?.dueDate | date:'short' }}</td>
                     </ng-container>
                     <ng-container *ngSwitchDefault>
                       <td  [class]="col?.class">{{data[col?.variable]}}</td>
@@ -278,7 +282,314 @@
             </tbody>
           </nz-table>
         </div>
-      </div>
+        <!-- Submission Area -->
+        <div class="p-3 tableWrap" *ngIf="selectedTab == 5">
+          <nz-table #basicTable [nzData]="submissionData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full">
+            <thead>
+              <tr class="!text-sm !font-semibold w-full">
+                <ng-container  *ngFor="let col of columns?.submissionColumn ; let i = index">
+                  <ng-container [ngSwitch]="col?.variable">
+                    <ng-container *ngSwitchDefault>
+                      <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of basicTable.data" class="!text-xs">
+                <ng-container *ngFor="let col of columns?.submissionColumn ; let i = index ">
+                  <ng-container [ngSwitch]="col?.variable">
+                    <ng-container *ngSwitchCase="'Sr.'">
+                      <td  [class]="col?.class">{{i+1}}</td>
+                    </ng-container>
+
+                    <ng-container *ngSwitchCase="'downloadLink'">
+                      <td [class]="col?.class">
+                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                      </td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'uploadLink'">
+                      <td [class]="col?.class">
+                        <span nz-icon nzType="upload" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                      </td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'startDate'">
+                      <td [class]="col?.class">{{data?.startDate | date:'short' }}</td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'endDate'">
+                      <td [class]="col?.class">{{data?.endDate | date:'short' }}</td>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                      <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </tbody>
+          </nz-table>
+        </div>
+        <!-- Grade Book Area -->
+        <div class="p-3" *ngIf="selectedTab == 6">
+          <div class="flex flex-col border rounded-md shadow-md p-4 calculateInnerCardHeight overflow-auto gap-3">
+            <div class="flex flex-row gap-4 w-full justify-end">
+              <div class="gap-3 flex flex-row">
+                <span class="text-base font-sans font-bold">Class Average</span>
+                <span class=" px-2 py-1 bg-[#5c82ff7e] rounded-md text-white">{{gradeBookData?.classAverage | number:'1.2-2'}} / 100</span>
+              </div>
+              <div class="gap-3 flex flex-row">
+                <span class="text-base font-sans font-bold">Course Percentage</span>
+                <span class=" px-2 py-1 bg-[#5c82ff7e] rounded-md text-white">{{gradeBookData?.coursePercentage | number:'1.2-2'}} / 100</span>
+              </div>
+              <div class="gap-3 flex flex-row">
+                <span class="text-base font-sans font-bold">Course Grade</span>
+                <span class=" px-2 py-1 bg-[#5c82ff7e] rounded-md text-white">{{gradeBookData?.courseGrade}}</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <!-- Assignment Card -->
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState[1] = true"
+                                     (closed)="panelOpenState[1] = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div class="flex flex-row gap-6">
+                        <span class="font-semibold">Assignment</span>
+                        <div class="w-[300px]">
+                          <nz-progress [nzPercent]="88"></nz-progress>
+                        </div>
+                      </div>
+                    </mat-panel-title>
+                    <mat-panel-description>
+
+                    </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class=" flex flex-col gap-2 border rounded shadow-md w-full overflow-auto tableWrap">
+                      <nz-table #basicTable [nzData]="gradeBookData?.assignment" nzFrontPagination="false" class="rounded-md border max-h-[200px] w-full">
+                        <thead>
+                          <tr class="!text-sm !font-semibold w-full">
+                            <ng-container  *ngFor="let col of columns?.gradeColumn ; let i = index">
+                              <ng-container [ngSwitch]="col?.variable">
+                                <ng-container *ngSwitchDefault>
+                                  <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                                </ng-container>
+                              </ng-container>
+                            </ng-container>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let data of basicTable.data ; let i = index " class="!text-xs">
+                            <ng-container *ngFor="let col of columns?.gradeColumn ">
+                              <ng-container [ngSwitch]="col?.variable">
+                                <ng-container *ngSwitchCase="'Sr.'">
+                                  <td  [class]="col?.class">{{i+1}}</td>
+                                </ng-container>
+                                <ng-container *ngSwitchDefault>
+                                  <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                                </ng-container>
+                              </ng-container>
+                            </ng-container>
+                          </tr>
+                        </tbody>
+                      </nz-table>
+                    </div>
+                  </mat-expansion-panel>
+              </mat-accordion>
+              <!-- Quiz Card -->
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState[2] = true"
+                                     (closed)="panelOpenState[2] = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div class="flex flex-row gap-6">
+                        <span class="font-semibold">Quiz</span>
+                        <div class="w-[300px]">
+                          <nz-progress [nzPercent]="82"></nz-progress>
+                        </div>
+                      </div>
+                    </mat-panel-title>
+                    <mat-panel-description>
+
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <div class=" flex flex-col gap-2 border rounded shadow-md w-full overflow-auto tableWrap">
+                    <nz-table #basicTable [nzData]="gradeBookData?.quiz" nzFrontPagination="false" class="rounded-md border max-h-[200px] w-full">
+                      <thead>
+                        <tr class="!text-sm !font-semibold w-full">
+                          <ng-container  *ngFor="let col of columns?.gradeColumn ; let i = index">
+                            <ng-container [ngSwitch]="col?.variable">
+                              <ng-container *ngSwitchDefault>
+                                <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of gradeBookData?.quiz ; let i = index " class="!text-xs">
+                          <ng-container *ngFor="let col of columns?.gradeColumn ">
+                            <ng-container [ngSwitch]="col?.variable">
+                              <ng-container *ngSwitchCase="'Sr.'">
+                                <td  [class]="col?.class">{{i+1}}</td>
+                              </ng-container>
+                              <ng-container *ngSwitchDefault>
+                                <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </tr>
+                      </tbody>
+                    </nz-table>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <!-- Mid Term Card -->
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState[3] = true"
+                                     (closed)="panelOpenState[3] = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div class="flex flex-row gap-6">
+                        <span class="font-semibold">Mid Term</span>
+                        <div class="w-[300px]">
+                          <nz-progress [nzPercent]="97"></nz-progress>
+                        </div>
+                      </div>
+                    </mat-panel-title>
+                    <mat-panel-description>
+
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <div class=" flex flex-col gap-2 border rounded shadow-md w-full overflow-auto tableWrap">
+                    <nz-table #basicTable [nzData]="gradeBookData?.midTerm" nzFrontPagination="false" class="rounded-md border max-h-[200px] w-full">
+                      <thead>
+                        <tr class="!text-sm !font-semibold w-full">
+                          <ng-container  *ngFor="let col of columns?.gradeColumn ; let i = index">
+                            <ng-container [ngSwitch]="col?.variable">
+                              <ng-container *ngSwitchDefault>
+                                <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of gradeBookData?.midTerm ; let i = index " class="!text-xs">
+                          <ng-container *ngFor="let col of columns?.gradeColumn ">
+                            <ng-container [ngSwitch]="col?.variable">
+                              <ng-container *ngSwitchCase="'Sr.'">
+                                <td  [class]="col?.class">{{i+1}}</td>
+                              </ng-container>
+                              <ng-container *ngSwitchDefault>
+                                <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </tr>
+                      </tbody>
+                    </nz-table>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <!-- Class Participation Card -->
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState[4] = true"
+                                     (closed)="panelOpenState[4] = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div class="flex flex-row gap-6">
+                        <span class="font-semibold">Class Participation</span>
+                        <div class="w-[300px]">
+                          <nz-progress [nzPercent]="100"></nz-progress>
+                        </div>
+                      </div>
+                    </mat-panel-title>
+                    <mat-panel-description>
+
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <div class=" flex flex-col gap-2 border rounded shadow-md w-full overflow-auto tableWrap">
+                    <nz-table #basicTable [nzData]="gradeBookData?.classParticipation" nzFrontPagination="false" class="rounded-md border max-h-[200px] w-full">
+                      <thead>
+                        <tr class="!text-sm !font-semibold w-full">
+                          <ng-container  *ngFor="let col of columns?.gradeColumn ; let i = index">
+                            <ng-container [ngSwitch]="col?.variable">
+                              <ng-container *ngSwitchDefault>
+                                <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of gradeBookData?.classParticipation ; let i = index " class="!text-xs">
+                          <ng-container *ngFor="let col of columns?.gradeColumn ">
+                            <ng-container [ngSwitch]="col?.variable">
+                              <ng-container *ngSwitchCase="'Sr.'">
+                                <td  [class]="col?.class">{{i+1}}</td>
+                              </ng-container>
+                              <ng-container *ngSwitchDefault>
+                                <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </tr>
+                      </tbody>
+                    </nz-table>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <!-- Final Term Card -->
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState[5] = true"
+                                     (closed)="panelOpenState[5] = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div class="flex flex-row gap-6">
+                        <span class="font-semibold">Final Term</span>
+                        <div class="w-[300px]">
+                          <nz-progress [nzPercent]="100"></nz-progress>
+                        </div>
+                      </div>
+                    </mat-panel-title>
+                    <mat-panel-description>
+
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <div class=" flex flex-col gap-2 border rounded shadow-md w-full overflow-auto tableWrap">
+                    <nz-table #basicTable [nzData]="gradeBookData?.finalTerm" nzFrontPagination="false" class="rounded-md border max-h-[200px] w-full">
+                      <thead>
+                        <tr class="!text-sm !font-semibold w-full">
+                          <ng-container  *ngFor="let col of columns?.gradeColumn ; let i = index">
+                            <ng-container [ngSwitch]="col?.variable">
+                              <ng-container *ngSwitchDefault>
+                                <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of gradeBookData?.finalTerm ; let i = index " class="!text-xs">
+                          <ng-container *ngFor="let col of columns?.gradeColumn ">
+                            <ng-container [ngSwitch]="col?.variable">
+                              <ng-container *ngSwitchCase="'Sr.'">
+                                <td  [class]="col?.class">{{i+1}}</td>
+                              </ng-container>
+                              <ng-container *ngSwitchDefault>
+                                <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </tr>
+                      </tbody>
+                    </nz-table>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+          </div>
+        </div>
     </div>
 
   </div>

@@ -14,6 +14,6 @@ registerLocaleData(uk);
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes), provideAnimationsAsync(), provideNzIcons(), provideNzI18n(uk_UA), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient()
+    provideRouter(routes), provideAnimationsAsync(), provideNzIcons(), provideNzI18n(uk_UA), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient(), provideAnimationsAsync()
   ]
 };
