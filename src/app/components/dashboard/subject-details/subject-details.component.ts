@@ -33,12 +33,12 @@ export class SubjectDetailsComponent implements OnInit{
   ];
   courseOutline: any = {
     requirement: `Prerequisites:  Reasonable programming skills with proven track in ITC, PF and OOP courses`,
-    objective: '',
-    methodology: '',
-    learningOutcome: '',
+    objective: ['Understand the properties of various data structures.' , 'Identify the strengths and weaknesses of different data structures.' , 'Design and employ appropriate data structures for solving computing problems' , 'Possess the knowledge of various existing algorithms.' , 'Analyze and compare the efficiency of algorithms.'],
+    methodology: 'Interactive Lecturing',
+    learningOutcome: ['Describe the characteristics and use cases of various data structures.' , 'Examine the time and space complexity of different data structures and algorithms.' , ' Implement a range of data structures and algorithms. '],
     title: [],
     description: [],
-    textBooks: [],
+    textBooks: [ {bookTitle: 'Data Structures and Algorithms' , bookAuthor: 'D. S. Malik' , bookEdition: '5th' , bookPublisher: 'Text Publishers' , bookYear: '2021' , bookDescription: 'None'}],
     refBooks: [],
     webSources: [],
     assessmentEvaluation: [],
@@ -52,6 +52,15 @@ export class SubjectDetailsComponent implements OnInit{
       {label: 'Date' , variable: 'date' ,class:'text-center'},
       {label: 'Description' , variable: 'description' },
       {label: 'Attachment' , variable: 'attachmentFile' , width:'100px' , class:'text-center'},
+    ],
+    recommendedColumns: [
+      {label: 'Sr.' , variable: 'Sr.' , width: '50px',class:'text-center'},
+      {label: 'Title' , variable: 'bookTitle' },
+      {label: 'Author' , variable: 'bookAuthor'},
+      {label: 'Edition' , variable: 'bookEdition' },
+      {label: 'Publisher' , variable: 'bookPublisher' },
+      {label: 'Year' , variable: 'bookYear' },
+      {label: 'Description' , variable: 'bookDescription' },
     ]
   };
   constructor(

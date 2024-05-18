@@ -19,14 +19,14 @@
             <div class="p-2 !pb-0 text-black  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex" (click)="selectedTab = tab?.tab;" [ngClass]="{'tabChange': selectedTab == tab?.tab}">{{tab?.tabName}}</div>
           </div>
         </div>
-        <div class="p-3" *ngIf="selectedTab == 1">
+        <div class="p-3 tableWrap" *ngIf="selectedTab == 1">
           <nz-table #basicTable [nzData]="announcementData" nzFrontPagination="false" class="rounded-md border h-[450px] w-full">
             <thead>
               <tr class="!text-sm !font-semibold w-full">
                 <ng-container  *ngFor="let col of columns?.announcementColumn ; let i = index">
                   <ng-container [ngSwitch]="col?.variable">
                     <ng-container *ngSwitchDefault>
-                      <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3 hover:!bg-[#5c82ff26]">{{col?.label}}</th>
+                      <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
                     </ng-container>
                   </ng-container>
                 </ng-container>
@@ -54,14 +54,65 @@
         <div class="p-3" *ngIf="selectedTab == 2">
           <div class="flex flex-col border rounded-md shadow-md p-4 h-[450px] overflow-auto gap-3">
             <div class="gap-2 flex flex-col">
-              <span class="text-lg font-sans font-semibold">Course Requirement:</span>
+              <span class="text-base font-sans font-bold">Course Requirement:</span>
               <span>{{courseOutline?.requirement}}</span>
             </div>
             <div class="gap-2 flex flex-col">
-              <span class="text-lg font-sans font-semibold">Course Objectives:</span>
-              <div class="flex flex-col">
+              <span class="text-base font-sans font-bold">Course Objectives:</span>
+              <div class="flex flex-col gap-2">
                 <span>On completion of this module, students should be able to:</span>
-                <span>{{courseOutline?.objective}}</span>
+                <div type="1" *ngFor="let bull of courseOutline?.objective" class="gap-2 flex flex-row items-center ml-3">
+                  <span nz-icon nzType="caret-right" nzTheme="outline"></span> <span>{{bull}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="gap-2 flex flex-col">
+              <span class="text-base font-sans font-bold">Methodology:</span>
+              <div class="flex flex-col gap-2">
+                <span>{{courseOutline?.methodology}}</span>
+              </div>
+            </div>
+            <div class="gap-2 flex flex-col">
+              <span class="text-base font-sans font-bold">Learning Outcome:</span>
+              <div class="flex flex-col gap-2">
+                <span>{{courseOutline?.methodology}}</span>
+                <div type="1" *ngFor="let outcome of courseOutline?.learningOutcome" class="gap-2 flex flex-row items-center ml-3">
+                  <span nz-icon nzType="caret-right" nzTheme="outline"></span> <span>{{outcome}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="gap-2 flex flex-col">
+              <span class="text-lg font-sans font-bold">Recommended Text Books:</span>
+              <div class="flex flex-col gap-2 tableWrap">
+                <nz-table #basicTable [nzData]="courseOutline?.textBooks" nzFrontPagination="false" nzShowPagination="false" class="rounded-md border max-h-[150px] w-full">
+                  <thead>
+                    <tr class="!text-sm !font-semibold w-full">
+                      <ng-container  *ngFor="let col of columns?.recommendedColumns ; let i = index">
+                        <ng-container [ngSwitch]="col?.variable">
+                          <ng-container *ngSwitchDefault>
+                            <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                          </ng-container>
+                        </ng-container>
+                      </ng-container>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let data of basicTable.data">
+                      <tr class="!text-xs rowColorChange">
+                        <ng-container *ngFor="let col of columns?.recommendedColumns ; let i = index ">
+                          <ng-container [ngSwitch]="col?.variable">
+                            <ng-container *ngSwitchCase="'Sr.'">
+                              <td  [class]="col?.class">{{i+1}}</td>
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
+                              <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                            </ng-container>
+                          </ng-container>
+                        </ng-container>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </nz-table>
               </div>
             </div>
           </div>

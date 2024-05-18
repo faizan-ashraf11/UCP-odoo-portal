@@ -51,3 +51,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --tw-bg-opa
 .muted{
   color: rgba(128, 128, 128, 0.603);
 }
+
+
+.tableWrap{
+  & tbody{
+    & tr{
+        &:hover{
+            & td{
+                background-color:  #5c82ff26 !important;
+            }
+        }
+    }
+  }
+}
