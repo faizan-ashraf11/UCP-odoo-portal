@@ -193,6 +193,86 @@
             </div>
           </div>
         </div>
+        <div class="p-3 tableWrap" *ngIf="selectedTab == 3">
+          <nz-table #basicTable [nzData]="courseMaterialData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full">
+            <thead>
+              <tr class="!text-sm !font-semibold w-full">
+                <ng-container  *ngFor="let col of columns?.courseMaterialColumn ; let i = index">
+                  <ng-container [ngSwitch]="col?.variable">
+                    <ng-container *ngSwitchDefault>
+                      <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of basicTable.data" class="!text-xs">
+                <ng-container *ngFor="let col of columns?.courseMaterialColumn ; let i = index ">
+                  <ng-container [ngSwitch]="col?.variable">
+                    <ng-container *ngSwitchCase="'Sr.'">
+                      <td  [class]="col?.class">{{i+1}}</td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'fileLink'">
+                      <td [class]="col?.class">
+                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                      </td>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                      <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </tbody>
+          </nz-table>
+        </div>
+        <div class="p-3 tableWrap" *ngIf="selectedTab == 4">
+          <nz-table #basicTable [nzData]="assessmentData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full">
+            <thead>
+              <tr class="!text-sm !font-semibold w-full">
+                <ng-container  *ngFor="let col of columns?.assessmentColumn ; let i = index">
+                  <ng-container [ngSwitch]="col?.variable">
+                    <ng-container *ngSwitchDefault>
+                      <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of basicTable.data" class="!text-xs">
+                <ng-container *ngFor="let col of columns?.assessmentColumn ; let i = index ">
+                  <ng-container [ngSwitch]="col?.variable">
+                    <ng-container *ngSwitchCase="'Sr.'">
+                      <td  [class]="col?.class">{{i+1}}</td>
+                    </ng-container>
+
+                    <ng-container *ngSwitchCase="'downloadLink'">
+                      <td [class]="col?.class">
+                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                      </td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'uploadLink'">
+                      <td [class]="col?.class">
+                        <span nz-icon nzType="upload" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                      </td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'assessmentDate'">
+                      <td [class]="col?.class">{{data?.assessmentDate | date}}</td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'dueDate'">
+                      <td [class]="col?.class">{{data?.dueDate | date}}</td>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                      <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </tbody>
+          </nz-table>
+        </div>
       </div>
     </div>
 

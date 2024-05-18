@@ -31,6 +31,9 @@ export class SubjectDetailsComponent implements OnInit{
   announcementData: any[] = [
     {subjectName: 'On Leave' , date: new Date() , description: 'None'}
   ];
+  courseMaterialData: any[] = [
+    {fileName: 'Link List Paractice' , fileDescription: 'None' , fileLink: 'None'}
+  ];
   courseOutline: any = {
     requirement: `Prerequisites:  Reasonable programming skills with proven track in ITC, PF and OOP courses`,
     objective: ['Understand the properties of various data structures.' , 'Identify the strengths and weaknesses of different data structures.' , 'Design and employ appropriate data structures for solving computing problems' , 'Possess the knowledge of various existing algorithms.' , 'Analyze and compare the efficiency of algorithms.'],
@@ -174,8 +177,26 @@ export class SubjectDetailsComponent implements OnInit{
       {label: 'Week No.' , variable: 'Week No.' , width: '100px',class:'text-center'},
       {label: 'Week Contents' , variable: 'weekContents' },
       {label: 'Activity' , variable: 'weekActivity' , width: '200px' ,class:'text-center'},
+    ],
+    courseMaterialColumn: [
+      {label: 'Sr.' , variable: 'Sr.' , width: '50px',class:'text-center'},
+      {label: 'File Name' , variable: 'fileName' , width: '200px' , class: 'font-semibold' },
+      {label: 'Description' , variable: 'fileDescription'},
+      {label: 'Download' , variable: 'fileLink' , width: '100px' , class: 'text-center' },
+    ],
+    assessmentColumn: [
+      {label: 'Sr.' , variable: 'Sr.' , width: '50px',class:'text-center'},
+      {label: 'Assessment Name' , variable: 'assessmentName' , width: '200px' , class: 'font-semibold' },
+      {label: 'Description' , variable: 'assessmentDescription'},
+      {label: 'Date' , variable: 'assessmentDate' , width: '150px'},
+      {label: 'Due Date' , variable: 'dueDate' , width: '150px'},
+      {label: 'Upload' , variable: 'uploadLink' , width: '80px' , class: 'text-center' },
+      {label: 'Attachments' , variable: 'downloadLink' , width: '100px' , class: 'text-center' },
     ]
   };
+  assessmentData: any[] = [
+    { assessmentName: 'CP-01' , assessmentDescription: 'None' , assessmentDate: new Date() , dueDate: new Date() , uploadLink: 'None' , downloadLink: 'None' }
+  ];
   constructor(
     private activatedRoute: ActivatedRoute,
     private subjectTeacherService: SubjectTeacherService
