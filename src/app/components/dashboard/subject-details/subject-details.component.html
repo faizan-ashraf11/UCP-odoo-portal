@@ -599,7 +599,7 @@
               <span class="flex flex-row"><span class="font-semibold">Number of Classes Attended</span> : {{attendenceData?.classesAttended}}</span>
               <span class="flex flex-row"><span class="font-semibold">Attendance Percentage</span> : {{attendenceData?.attendencePercentage}}</span>
             </div>
-            <nz-table #basicTable [nzData]="attendenceData?.attendenceTableData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full overflow-auto ">
+            <nz-table #basicTable [nzData]="attendenceData?.attendenceTableData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full">
               <thead>
                 <tr class="!text-sm !font-semibold w-full">
                   <ng-container  *ngFor="let col of columns?.attendenceColumn ; let i = index">
