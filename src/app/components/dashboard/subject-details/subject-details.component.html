@@ -34,8 +34,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let data of basicTable.data" class="!text-xs">
-                <ng-container *ngFor="let col of columns?.announcementColumn ; let i = index ">
+              <tr *ngFor="let data of basicTable.data ; let i = index " class="!text-xs">
+                <ng-container *ngFor="let col of columns?.announcementColumn">
                   <ng-container [ngSwitch]="col?.variable">
                     <ng-container *ngSwitchCase="'Sr.'">
                       <td  [class]="col?.class">{{i+1}}</td>
@@ -104,9 +104,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <ng-container *ngFor="let data of basicTable.data">
+                    <ng-container *ngFor="let data of basicTable.data ; let i = index">
                       <tr class="!text-xs rowColorChange">
-                        <ng-container *ngFor="let col of columns?.recommendedColumns ; let i = index ">
+                        <ng-container *ngFor="let col of columns?.recommendedColumns ">
                           <ng-container [ngSwitch]="col?.variable">
                             <ng-container *ngSwitchCase="'Sr.'">
                               <td  [class]="col?.class">{{i+1}}</td>
@@ -138,9 +138,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <ng-container *ngFor="let data of basicTable.data">
+                    <ng-container *ngFor="let data of basicTable.data ; let i = index">
                       <tr class="!text-xs rowColorChange">
-                        <ng-container *ngFor="let col of columns?.recommendedColumns ; let i = index ">
+                        <ng-container *ngFor="let col of columns?.recommendedColumns ">
                           <ng-container [ngSwitch]="col?.variable">
                             <ng-container *ngSwitchCase="'Sr.'">
                               <td  [class]="col?.class">{{i+1}}</td>
@@ -215,8 +215,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let data of basicTable.data" class="!text-xs">
-                <ng-container *ngFor="let col of columns?.courseMaterialColumn ; let i = index ">
+              <tr *ngFor="let data of basicTable.data ; let i = index" class="!text-xs">
+                <ng-container *ngFor="let col of columns?.courseMaterialColumn ">
                   <ng-container [ngSwitch]="col?.variable">
                     <ng-container *ngSwitchCase="'Sr.'">
                       <td  [class]="col?.class">{{i+1}}</td>
@@ -250,8 +250,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let data of basicTable.data" class="!text-xs">
-                <ng-container *ngFor="let col of columns?.assessmentColumn ; let i = index ">
+              <tr *ngFor="let data of basicTable.data ; let i = index " class="!text-xs">
+                <ng-container *ngFor="let col of columns?.assessmentColumn">
                   <ng-container [ngSwitch]="col?.variable">
                     <ng-container *ngSwitchCase="'Sr.'">
                       <td  [class]="col?.class">{{i+1}}</td>
@@ -297,8 +297,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let data of basicTable.data" class="!text-xs">
-                <ng-container *ngFor="let col of columns?.submissionColumn ; let i = index ">
+              <tr *ngFor="let data of basicTable.data ; let i = index " class="!text-xs">
+                <ng-container *ngFor="let col of columns?.submissionColumn">
                   <ng-container [ngSwitch]="col?.variable">
                     <ng-container *ngSwitchCase="'Sr.'">
                       <td  [class]="col?.class">{{i+1}}</td>
@@ -588,6 +588,47 @@
                 </mat-expansion-panel>
               </mat-accordion>
             </div>
+          </div>
+        </div>
+        <div class="p-3 tableWrap" *ngIf="selectedTab == 7">
+          <div class="flex flex-col border rounded-md shadow-md p-4 calculateInnerCardHeight gap-3">
+            <div class="flex flex-wrap gap-5">
+              <span class="flex flex-row"><span class="font-semibold">Academic Term</span> : {{attendenceData?.academicTerm}}</span>
+              <span class="flex flex-row"><span class="font-semibold">Course Code</span> : {{attendenceData?.courseCode}}</span>
+              <span class="flex flex-row"><span class="font-semibold">Number of Classes Conducted</span> : {{attendenceData?.classesConducted}}</span>
+              <span class="flex flex-row"><span class="font-semibold">Number of Classes Attended</span> : {{attendenceData?.classesAttended}}</span>
+              <span class="flex flex-row"><span class="font-semibold">Attendance Percentage</span> : {{attendenceData?.attendencePercentage}}</span>
+            </div>
+            <nz-table #basicTable [nzData]="attendenceData?.attendenceTableData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full overflow-auto ">
+              <thead>
+                <tr class="!text-sm !font-semibold w-full">
+                  <ng-container  *ngFor="let col of columns?.attendenceColumn ; let i = index">
+                    <ng-container [ngSwitch]="col?.variable">
+                      <ng-container *ngSwitchDefault>
+                        <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                      </ng-container>
+                    </ng-container>
+                  </ng-container>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of attendenceData?.attendenceTableData ; let i = index " class="!text-xs">
+                  <ng-container *ngFor="let col of columns?.attendenceColumn">
+                    <ng-container [ngSwitch]="col?.variable">
+                      <ng-container *ngSwitchCase="'Sr.'">
+                        <td  [class]="col?.class">{{i+1}}</td>
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'date'">
+                        <td [class]="col?.class">{{data?.date | date:'short' }}</td>
+                      </ng-container>
+                      <ng-container *ngSwitchDefault>
+                        <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                      </ng-container>
+                    </ng-container>
+                  </ng-container>
+                </tr>
+              </tbody>
+            </nz-table>
           </div>
         </div>
     </div>

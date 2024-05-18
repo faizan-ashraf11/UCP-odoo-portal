@@ -76,3 +76,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --tw-bg-opa
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+::ng-deep{
+  .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover{
+    background: #5c82ff26 !important;
+  }
+  .ant-progress-success-bg, .ant-progress-bg {
+    position: relative;
+    background-color: #5c82ff !important;
+    transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
+  }
+}

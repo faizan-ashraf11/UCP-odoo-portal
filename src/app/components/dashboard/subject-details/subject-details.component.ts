@@ -210,6 +210,12 @@ export class SubjectDetailsComponent implements OnInit{
       {label: 'Obtained Marks' , variable: 'obtainedMarks' ,  class: 'text-center'},
       {label: 'Class Average' , variable: 'classAverage' ,  class: 'text-center'},
       {label: 'Percentage' , variable: 'obtainedPercentage' , class: 'text-center' },
+    ],
+    attendenceColumn: [
+      {label: 'Sr.' , variable: 'Sr.' , width: '50px',class:'text-center'},
+      {label: 'Date' , variable: 'date' ,  class: 'text-center'},
+      {label: 'Status' , variable: 'status' ,  class: 'text-center'},
+      {label: 'Fine' , variable: 'fine' , class: 'text-center font-semibold' },
     ]
   };
   assessmentData: any[] = [
@@ -255,6 +261,36 @@ export class SubjectDetailsComponent implements OnInit{
       {
         assessmentName: 'Final Term' , totalMarks: 60 , obtainedMarks: 60 , classAverage: 51.2 , obtainedPercentage: 100
       },
+    ]
+  }
+  attendenceData: any = {
+    classesConducted: 20,
+    academicTerm: 'Spring 2024',
+    courseCode: 'SECP2043-S24-BS-SE-F22-P7',
+    classesAttended: 19,
+    attendencePercentage: 95,
+    attendenceTableData: [
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Leave' , fine: 250},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
+      { date: new Date() , status: 'Present' , fine: 0},
     ]
   }
   constructor(
