@@ -159,7 +159,7 @@ export class SubjectDetailsComponent implements OnInit{
   columns: any = {
     announcementColumn: [
       {label: 'Sr.' , variable: 'Sr.' , width: '50px',class:'text-center'},
-      {label: 'Subject' , variable: 'subjectName' },
+      {label: 'Message' , variable: 'subjectName' , class: 'font-semibold' },
       {label: 'Date' , variable: 'date' ,class:'text-center'},
       {label: 'Description' , variable: 'description' },
       {label: 'Attachment' , variable: 'attachmentFile' , width:'100px' , class:'text-center'},
