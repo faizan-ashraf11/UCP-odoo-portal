@@ -160,8 +160,7 @@ export class SubjectDetailsComponent implements OnInit{
     announcementColumn: [
       {label: 'Sr.' , variable: 'Sr.' , width: '50px',class:'text-center'},
       {label: 'Message' , variable: 'subjectName' , class: 'font-semibold' },
-      {label: 'Date' , variable: 'date' ,class:'text-center'},
-      {label: 'Description' , variable: 'description' },
+      {label: 'Date' , variable: 'date' ,class:'text-center' , width: '150px'},
       {label: 'Attachment' , variable: 'attachmentFile' , width:'100px' , class:'text-center'},
     ],
     recommendedColumns: [
