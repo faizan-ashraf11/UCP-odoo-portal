@@ -84,7 +84,7 @@
             <div class="gap-2 flex flex-col">
               <span class="text-lg font-sans font-bold">Recommended Text Books:</span>
               <div class="flex flex-col gap-2 tableWrap">
-                <nz-table #basicTable [nzData]="courseOutline?.textBooks" nzFrontPagination="false" nzShowPagination="false" class="rounded-md border max-h-[150px] w-full">
+                <nz-table #basicTable [nzData]="courseOutline?.textBooks" nzFrontPagination="false" nzShowPagination="false" class="rounded-md border w-full" [ngClass]="{'max-h-[150px]': courseOutline?.textBooks?.length == 0}">
                   <thead>
                     <tr class="!text-sm !font-semibold w-full">
                       <ng-container  *ngFor="let col of columns?.recommendedColumns ; let i = index">
@@ -106,6 +106,82 @@
                             </ng-container>
                             <ng-container *ngSwitchDefault>
                               <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                            </ng-container>
+                          </ng-container>
+                        </ng-container>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </nz-table>
+              </div>
+            </div>
+            <div class="gap-2 flex flex-col">
+              <span class="text-lg font-sans font-bold">Recommended Reference Books:</span>
+              <div class="flex flex-col gap-2 tableWrap">
+                <nz-table #basicTable [nzData]="courseOutline?.refBooks" nzFrontPagination="false" nzShowPagination="false" class="rounded-md border w-full" [ngClass]="{'max-h-[150px]': courseOutline?.refBooks?.length == 0}">
+                  <thead>
+                    <tr class="!text-sm !font-semibold w-full">
+                      <ng-container  *ngFor="let col of columns?.recommendedColumns ; let i = index">
+                        <ng-container [ngSwitch]="col?.variable">
+                          <ng-container *ngSwitchDefault>
+                            <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                          </ng-container>
+                        </ng-container>
+                      </ng-container>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let data of basicTable.data">
+                      <tr class="!text-xs rowColorChange">
+                        <ng-container *ngFor="let col of columns?.recommendedColumns ; let i = index ">
+                          <ng-container [ngSwitch]="col?.variable">
+                            <ng-container *ngSwitchCase="'Sr.'">
+                              <td  [class]="col?.class">{{i+1}}</td>
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
+                              <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                            </ng-container>
+                          </ng-container>
+                        </ng-container>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </nz-table>
+              </div>
+            </div>
+            <div class="gap-2 flex flex-col">
+              <span class="text-lg font-sans font-bold">Assessment and Evaluation:</span>
+              <div class="flex flex-col gap-2 ">
+                <div type="1" *ngFor="let evaluation of courseOutline?.assessmentEvaluation" class="gap-2 flex flex-row items-center ml-3">
+                  <span nz-icon nzType="caret-right" nzTheme="outline"></span> <span>{{evaluation?.title}} : <span class="font-semibold">{{evaluation?.value}} %</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="gap-2 flex flex-col">
+              <span class="text-lg font-sans font-bold">Calendar of Activities:</span>
+              <div class="flex flex-col gap-2 tableWrap">
+                <nz-table #basicTable [nzData]="courseOutline?.calendarActivities" nzFrontPagination="false" nzShowPagination="false" class="rounded-md border w-full" [ngClass]="{'max-h-[150px]': courseOutline?.calendarActivities?.length == 0}">
+                  <thead>
+                    <tr class="!text-sm !font-semibold w-full">
+                      <ng-container  *ngFor="let col of columns?.activitiesColumn ; let i = index">
+                        <ng-container [ngSwitch]="col?.variable">
+                          <ng-container *ngSwitchDefault>
+                            <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                          </ng-container>
+                        </ng-container>
+                      </ng-container>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let data of courseOutline?.calendarActivities; let i = index ">
+                      <tr class="!text-xs rowColorChange">
+                        <ng-container *ngFor="let col of columns?.activitiesColumn ">
+                          <ng-container [ngSwitch]="col?.variable">
+                            <ng-container *ngSwitchCase="'Week No.'">
+                              <td  [class]="col?.class">{{i+1}}</td>
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
+                              <td  [class]="col?.class" class="whitespace-pre-line leading-6">{{data[col?.variable]}}</td>
                             </ng-container>
                           </ng-container>
                         </ng-container>

@@ -36,14 +36,122 @@ export class SubjectDetailsComponent implements OnInit{
     objective: ['Understand the properties of various data structures.' , 'Identify the strengths and weaknesses of different data structures.' , 'Design and employ appropriate data structures for solving computing problems' , 'Possess the knowledge of various existing algorithms.' , 'Analyze and compare the efficiency of algorithms.'],
     methodology: 'Interactive Lecturing',
     learningOutcome: ['Describe the characteristics and use cases of various data structures.' , 'Examine the time and space complexity of different data structures and algorithms.' , ' Implement a range of data structures and algorithms. '],
-    title: [],
-    description: [],
     textBooks: [ {bookTitle: 'Data Structures and Algorithms' , bookAuthor: 'D. S. Malik' , bookEdition: '5th' , bookPublisher: 'Text Publishers' , bookYear: '2021' , bookDescription: 'None'}],
-    refBooks: [],
-    webSources: [],
-    assessmentEvaluation: [],
-    clo: [],
-    calendarActivities: []
+    refBooks: [ {bookTitle: 'Data Structures and Algorithms' , bookAuthor: 'D. S. Malik' , bookEdition: '5th' , bookPublisher: 'Text Publishers' , bookYear: '2021' , bookDescription: 'None'}],
+    assessmentEvaluation: [
+      {title: 'Assignments' , value: '15'},
+      {title: 'Quiz' , value: '10'},
+      {title: 'Mid Term' , value: '20'},
+      {title: 'Class Participation' , value: '10'},
+      {title: 'Final Term' , value: '45'},
+    ],
+    calendarActivities: [
+      {
+        weekContents: `Introduction to the Course (Course Outline and RoadMap)
+        Real Applications of Data Structures
+        Time and Space Complexity Introduction` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `Time and Space Complexity Analysis
+        How to calculate time complexity of given algorithm
+        Abstract Data Types, Template Classes` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `Introduction to Arrays as an ADT
+        List ADT` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `Linked Lists : Singly linked lists
+        Doubly linked lists
+        (Code  + Analysis and its applications)` ,
+        weekActivity: 'Assignment 1 & Quiz 1'
+      },
+      {
+        weekContents: `Circular lists
+        Code  + Analysis and its applications
+        Discuss Joseph Problem
+        Skip Lists` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `Recursion: what, why and where we use recursions, how to implement-two parts of a recursive function. Factorial, Fibonacci, reverse a number and its logic and memory model and stack trace.
+        Back track Link lists using recursion` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `Introduction to Stack ADT
+        Applications of Stack e.g., Polish notations, Arithmetic Expression evaluation
+        Queues ADT – circular and non-circular implementation` ,
+        weekActivity: 'Assignment 2 & Quiz 2'
+      },
+      {
+        weekContents: `Revision` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `Trees: Tree Data Structure Definition and Basic terminologies and its types
+        Binary Tree and types
+        Full/ proper/ strict Binary tree
+        Complete Binary tree
+        Perfect Binary tree
+        Degenerate Binary tree
+        Balanced Binary tree` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `Tree Traversal, Expression trees
+        InOrder, PreOrder, PostOrder Traversals
+        Binary Search Trees | Insertion, Searching` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `Binary Search Trees | Deletion and Sorting
+        Balance factor of tree
+        Skewed binary tree
+        Left skewed binary tree
+        Right skewed binary tree
+        Time complexity analysis` ,
+        weekActivity: 'Assignment 3 & Quiz 3	'
+      },
+      {
+        weekContents: `Self-balanced binary search trees
+        AVL Tree
+        How to calculate balance factor
+        Introduction to rotations
+        AVL Insertion
+        Iterative implementation
+        Recursive implementation` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `AVL deletion and updating record
+        HashTable/HashMap
+        Key-value pair
+        Hash function
+        Collision and Chaining` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `Heaps: Heap Data Structure, Max and Min Heaps
+        Priority Queues and Heap Sort
+        Huffman Encoding/Decoding` ,
+        weekActivity: 'Assignment 4 & Quiz 4	'
+      },
+      {
+        weekContents: `Graphs: Definition and its types and examples
+        Storage Mechanism
+        MST (Minimum Spanning Tree)
+        Dijkstra Alghorithm` ,
+        weekActivity: ''
+      },
+      {
+        weekContents: `Revision` ,
+        weekActivity: ''
+      },
+    ],
   }
   columns: any = {
     announcementColumn: [
@@ -61,6 +169,11 @@ export class SubjectDetailsComponent implements OnInit{
       {label: 'Publisher' , variable: 'bookPublisher' },
       {label: 'Year' , variable: 'bookYear' },
       {label: 'Description' , variable: 'bookDescription' },
+    ],
+    activitiesColumn: [
+      {label: 'Week No.' , variable: 'Week No.' , width: '100px',class:'text-center'},
+      {label: 'Week Contents' , variable: 'weekContents' },
+      {label: 'Activity' , variable: 'weekActivity' , width: '200px' ,class:'text-center'},
     ]
   };
   constructor(
