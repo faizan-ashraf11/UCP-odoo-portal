@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NotificationsComponent } from './notifications.component';
 import { Route, RouterModule } from '@angular/router';
 
@@ -9,7 +8,6 @@ const routes: Route[] = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     RouterModule.forChild(routes),
   ]
 })

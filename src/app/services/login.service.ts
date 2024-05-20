@@ -11,8 +11,7 @@ export class LoginService {
     return [
       {name: 'Dashboard' , icon:'appstore' , menuNo: 1 , path: 'dashboard'},
       {name: 'Notification' , icon:'bell' , menuNo: 2 , path: 'notification'},
-      {name: 'Academic' , icon:'form' , menuNo: 3 , path: 'academic'},
-      {name: 'Exam Result' , icon:'bar-chart' , menuNo: 4 , path: 'results'},
+      {name: 'Exam Result' , icon:'bar-chart' , menuNo: 4 , path: 'exam-result'},
       {name: 'Invoices' , icon:'container' , menuNo: 5 , path: 'invoices'},
       {name: 'Time Table' , icon:'database' , menuNo: 6 , path: 'time-table'},
       {name: 'Live Chat' , icon:'comment' , menuNo: 7 , path: 'live-chat'},

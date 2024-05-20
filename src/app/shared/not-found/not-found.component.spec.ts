@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AcademicComponent } from './academic.component';
+import { NotFoundComponent } from './not-found.component';
 
-describe('AcademicComponent', () => {
-  let component: AcademicComponent;
-  let fixture: ComponentFixture<AcademicComponent>;
+describe('NotFoundComponent', () => {
+  let component: NotFoundComponent;
+  let fixture: ComponentFixture<NotFoundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AcademicComponent]
+      imports: [NotFoundComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AcademicComponent);
+    fixture = TestBed.createComponent(NotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

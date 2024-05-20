@@ -1,1 +1,96 @@
-<p>exam-result works!</p>
+<div class="overflow-auto">
+  <div class="m-3 flex flex-col gap-4 !mx-6">
+    <div class="flex gap-3 w-full flex-col">
+      <div class="text-xs text-muted items-center flex gap-1 ml-6 flex-row">
+        <div class="gap-1 items-center flex hover:cursor-pointer font-sans" [routerLink]="['/']" routerLinkActive="router-link-active" ><span nz-icon [nzType]="'home'" nzTheme="outline" class=" font-bold"></span> Dashboard</div>
+        <div>/</div>
+        <div class="gap-1 items-center flex hover:cursor-pointer font-sans">Exam Result</div>
+      </div>
+      <div class="items-center gap-3 flex w-full ml-6">
+        <span nz-icon [nzType]="'bar-chart'" nzTheme="outline" class=" font-bold text-xl"></span>
+        <span class="text-xl font-bold font-sans">Exam Result</span>
+      </div>
+    </div>
+    <div class="flex flex-row w-full">
+      <div class="w-full  bg-white rounded-md border shadow-md calculateHeight">
+        <div class="flex flex-row gap-1 text-base font-sans border-b-2 border-gray-200 p-2">
+          <div *ngFor="let tab of tabs">
+            <div class="p-2 !pb-0 text-black  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex" (click)="selectedTab = tab?.tab;" [ngClass]="{'tabChange': selectedTab == tab?.tab}">{{tab?.tabName}}</div>
+          </div>
+        </div>
+        <div class="p-3 tableWrap !max-h-[395px] overflow-auto" *ngIf="selectedTab == 1">
+          <div class="flex flex-wrap gap-3 w-full" >
+            <div class="w-[30%] h-[180px] bg-white shadow-md rounded flex flex-col gap-2 hover:cursor-pointer border"  *ngFor="let subjectCards of activeSubjects"  (click)="viewSubjectDetails(subjectCards?.subjectId , subjectCards?.teacherId)">
+              <div class="bg-[#3457d53f] flex w-full">
+                <div class="text-base font-bold font-sans py-3 mx-auto w-fit">{{subjectCards?.name}}</div>
+              </div>
+              <div class="flex flex-col px-3 pb-3 gap-2">
+                <div class="text-base font-semibold font-sans underline text-[#3457D5]">{{subjectCards?.teacherName}}</div>
+                <div class="text-base font-semibold font-sans"><span class="text-base font-bold text-black font-sans">Projected Grade: </span>{{subjectCards?.cgpa}}</div>
+                <div class="text-base font-semibold font-sans"><span class="text-base font-bold text-black font-sans">Attendence: </span>{{subjectCards?.attendence}}%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-3 tableWrap  !max-h-[395px] overflow-auto" *ngIf="selectedTab == 2">
+          <div class="flex flex-col gap-2">
+            <!-- Assignment Card -->
+            <mat-accordion *ngFor="let mat of previousCourses; let i = index">
+              <mat-expansion-panel (opened)="panelOpenState[i] = true"
+                                   (closed)="panelOpenState[i] = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <div class="flex flex-row gap-8">
+                      <span class="font-semibold">{{ mat?.batchYear }}</span>
+                      <div class="flex w-fit textBase"><span class="font-semibold font-serif">CGPA:</span>&nbsp; {{ mat?.CGPA }}</div>
+                    </div>
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    <div class="flex flex-row gap-16">
+                      <div class="flex w-fit textBase"><span class="font-semibold font-serif">Grade Points:</span>&nbsp; {{ mat?.gradePoints }}</div>
+                      <div class="flex w-fit textBase"><span class="font-semibold font-serif">Subject Credit Hours:</span>&nbsp; {{ mat?.subjectCreditHours }}</div>
+                      <div class="flex w-fit textBase"><span class="font-semibold font-serif">Total Credit Hours:</span>&nbsp; {{ mat?.totalCreditHours }}</div>
+                      <div class="flex w-fit textBase"><span class="font-semibold font-serif">SGPA:</span>&nbsp; {{ mat?.SGPA }}</div>
+                    </div>
+                  </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <div class=" flex flex-col gap-2 border rounded shadow-md w-full overflow-auto tableWrap">
+                    <nz-table #basicTable [nzData]="mat?.courses" nzFrontPagination="false" class="rounded-md border w-full">
+                      <thead>
+                        <tr class="!text-sm !font-semibold w-full">
+                          <ng-container  *ngFor="let col of columns?.courseColumn ; let i = index">
+                            <ng-container [ngSwitch]="col?.variable">
+                              <ng-container *ngSwitchDefault>
+                                <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of basicTable.data ; let i = index " class="!text-xs">
+                          <ng-container *ngFor="let col of columns?.courseColumn ">
+                            <ng-container [ngSwitch]="col?.variable">
+                              <ng-container *ngSwitchCase="'Sr.'">
+                                <td  [class]="col?.class">{{i+1}}</td>
+                              </ng-container>
+                              <ng-container *ngSwitchDefault>
+                                <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </tr>
+                      </tbody>
+                    </nz-table>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div class="flex py-3">
+            <button class="button" style="vertical-align:middle"><span>Download</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
