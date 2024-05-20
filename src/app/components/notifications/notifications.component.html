@@ -1,1 +1,33 @@
-<p>notifications works!</p>
+<div class="overflow-auto">
+  <div class="m-3 flex flex-col gap-4 !mx-6">
+    <div class="flex gap-3 w-full flex-col">
+      <div class="text-xs text-muted items-center flex gap-1 ml-6 flex-row">
+        <div class="gap-1 items-center flex hover:cursor-pointer font-sans" [routerLink]="['/']" routerLinkActive="router-link-active" ><span nz-icon [nzType]="'home'" nzTheme="outline" class=" font-bold"></span> Dashboard</div>
+        <div>/</div>
+        <div class="gap-1 items-center flex hover:cursor-pointer font-sans">Notification</div>
+      </div>
+      <div class="items-center gap-3 flex w-full ml-6">
+        <span nz-icon [nzType]="'bell'" nzTheme="outline" class=" font-bold text-xl"></span>
+        <span class="text-xl font-bold font-sans">Notification</span>
+      </div>
+    </div>
+    <div class="flex flex-row w-full">
+      <div class="w-full  bg-white rounded-md border shadow-md calculateHeight">
+        <div class="flex flex-row p-3 w-full">
+          <div class="flex w-10/12 gap-3 flex-col">
+            <div *ngFor="let not of notification"  class="flex flex-row gap-3 h-[40px] items-center bg-gray-100 rounded-md shadow-md w-full border">
+              <nz-avatar [nzSize]="'large'" [nzShape]="'square'" style="background-color: #5c82ff" [nzText]="not?.teacherName[0]"></nz-avatar>
+              <span class="w-2/12 font-semibold flex">{{ not?.teacherName }}</span>
+              <span class="border-l-black pl-4 border-l">{{ not?.announcement }}</span>
+            </div>
+          </div>
+          <div class="flex w-2/12 p-3">
+            <nz-timeline>
+              <nz-timeline-item *ngFor="let not of notification" [nzColor]="not?.isNew? 'green' : 'gray'"><span class="h-[35px] flex text-[#5c82ff] font-semibold">{{ not.notificationDate | date}}</span></nz-timeline-item>
+            </nz-timeline>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

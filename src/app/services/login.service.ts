@@ -10,7 +10,7 @@ export class LoginService {
   getMenu(): any[]{
     return [
       {name: 'Dashboard' , icon:'appstore' , menuNo: 1 , path: 'dashboard'},
-      {name: 'Notification' , icon:'bell' , menuNo: 2 , path: 'notifications'},
+      {name: 'Notification' , icon:'bell' , menuNo: 2 , path: 'notification'},
       {name: 'Academic' , icon:'form' , menuNo: 3 , path: 'academic'},
       {name: 'Exam Result' , icon:'bar-chart' , menuNo: 4 , path: 'results'},
       {name: 'Invoices' , icon:'container' , menuNo: 5 , path: 'invoices'},
