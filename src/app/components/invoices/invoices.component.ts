@@ -33,7 +33,7 @@ export class InvoicesComponent implements OnInit , OnDestroy {
   ];
   invoicesData: any[] = [];
   subscription!: Subscription;
-  tableWidth: any = true;
+  tableWidth: any = false;
   constructor(
     private invoiceService: InvoiceService,
     private loginService: LoginService
