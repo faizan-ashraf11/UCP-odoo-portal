@@ -1,1 +1,69 @@
-<p>invoices works!</p>
+<div class="overflow-auto">
+  <div class="m-3 flex flex-col gap-4 !mx-6">
+    <div class="flex gap-3 w-full flex-col">
+      <div class="text-xs text-muted items-center flex gap-1 ml-6 flex-row">
+        <div class="gap-1 items-center flex hover:cursor-pointer font-sans" [routerLink]="['/']" routerLinkActive="router-link-active" ><span nz-icon [nzType]="'home'" nzTheme="outline" class=" font-bold"></span> Dashboard</div>
+        <div>/</div>
+        <div class="gap-1 items-center flex hover:cursor-pointer font-sans">Invoices</div>
+      </div>
+      <div class="items-center gap-3 flex w-full ml-6">
+        <span nz-icon [nzType]="'container'" nzTheme="outline" class=" font-bold text-xl"></span>
+        <span class="text-xl font-bold font-sans">Invoices</span>
+      </div>
+    </div>
+    <div class="flex flex-row w-full">
+      <div class="w-full  bg-white rounded-md border shadow-md calculateHeight"   [ngClass]="{'widthTable100': tableWidth , 'widthTable80': !tableWidth}">
+        <div class="p-3 tableWrap overflow-auto">
+          <nz-table #basicTable [nzData]="invoicesData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full">
+            <thead>
+              <tr class="!text-sm !font-semibold w-full">
+                <ng-container  *ngFor="let col of columns; let i = index">
+                  <ng-container [ngSwitch]="col?.variable">
+                    <ng-container *ngSwitchDefault>
+                      <th [class]="col?.class" [nzWidth]="col?.width" class="!p-3">{{col?.label}}</th>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of basicTable.data ; let i = index" class="!text-xs">
+                <ng-container *ngFor="let col of columns">
+                  <ng-container [ngSwitch]="col?.variable">
+                    <ng-container *ngSwitchCase="'Sr.'">
+                      <td  [class]="col?.class">{{i+1}}</td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'challanNumber'">
+                      <td [class]="col?.class" class="text-[#5c82ff] font-semibold">{{data?.challanNumber || '-' }}</td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'dueDate'">
+                      <td [class]="col?.class">{{data?.dueDate | date:'short' }}</td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'paidDate'">
+                      <td [class]="col?.class">{{data?.paidDate | date:'short' }}</td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'status'">
+                      <td [class]="col?.class">
+                        <div class="px-2 py-1 font-semibold flex items-center justify-center rounded-md shadow-md text-white !tracking-widest" [ngClass]="{'bg-green-400': (data?.status == 'Paid') , 'bg-red-400': (data?.status == 'Un-Paid') }">
+                          {{data?.status || '-' }}
+                        </div>
+                      </td>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'printUrl'">
+                      <td [class]="col?.class">
+                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                      </td>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                      <td  [class]="col?.class">{{data[col?.variable]}}</td>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </tbody>
+          </nz-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

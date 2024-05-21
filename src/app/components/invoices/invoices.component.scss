@@ -1,0 +1,21 @@
+.calculateHeight{
+  height: 450px;
+}
+.calculateInnerCardHeight{
+  height: 420px;
+  overflow: auto;
+}
+.widthTable100 {
+  width: 100%;
+}
+.widthTable80 {
+  width: 80%;
+}
+nz-table{
+  &thead{
+    height: 36px !important;
+    &td{
+      height: 36px !important;
+    }
+  }
+ }

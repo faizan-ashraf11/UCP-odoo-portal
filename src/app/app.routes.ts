@@ -7,7 +7,7 @@ export const routes: Routes = [
   { path: 'dashboard', data:{title: 'Dashboard'} , loadChildren:() => import("./components/dashboard/dashboard.module").then(m=>m.DashboardModule) },
   { path: 'notification' , data:{title: 'Notification'} , loadChildren:() => import("./components/notifications/notifications.module").then(m=>m.NotificationsModule) },
   { path: 'exam-result' , data:{title: 'Exam Result'} , loadChildren:() => import("./components/exam-result/exam-result.module").then(m=>m.ExamResultModule) },
-  { path: 'invoices' , data:{title: 'Invoices'} , component: CommingSoonComponent},
+  { path: 'invoices' , data:{title: 'Invoices'} , loadChildren:() => import("./components/invoices/invoices.module").then(m=>m.InvoicesModule) },
   { path: 'time-table' , data:{title: 'Time Table'} , component: CommingSoonComponent},
   { path: 'live-chat' , data:{title: 'Live Chat'} , component: CommingSoonComponent},
   { path: 'pending-tasks' , data:{title: 'Pending Tasks'} , component: CommingSoonComponent},

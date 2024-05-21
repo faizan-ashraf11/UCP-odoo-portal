@@ -56,6 +56,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --tw-bg-opa
 .tableWrap{
   & tbody{
     & tr{
+      height: 30px !important;
         &:hover{
             & td{
                 background-color:  #5c82ff26 !important;
@@ -64,6 +65,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --tw-bg-opa
     }
   }
 }
+
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td, .ant-table tfoot > tr > th, .ant-table tfoot > tr > td {
+  position: relative;
+  padding: 8px 8px;
+  overflow-wrap: break-word;
+}
+
 ::-webkit-scrollbar { width: 7px;height: 7px;border-radius: 8px; }
     ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 8px;}
   /* Handle */

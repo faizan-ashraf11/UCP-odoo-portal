@@ -1,6 +1,6 @@
 <div class="flex flex-row !bg-gray-200 overflow-hidden">
   <!-- Left Side Menu -->
-  <div class="bg-white border-r border-gray-300 h-screen w-[300px] flex flex-col rounded-r-md" [ngClass]="{'MenuClose' : showMenu , 'MenuOpen' : !showMenu}">
+  <div class="bg-white border-r border-gray-300 h-screen !min-w-[280px] !max-w-[280px] flex flex-col rounded-r-md" [ngClass]="{'MenuClose' : showMenu , 'MenuOpen' : !showMenu}">
     <div class="flex flex-row justify-center items-center" >
         <img src="{{logoAddress}}" alt="{{uniName}}" class="w-[100px] h-[100px] mixBlend">
         <span class="font-serif text-xl font-bold">{{uniName}}</span>

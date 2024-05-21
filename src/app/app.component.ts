@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
     this.counts++;
     if(this.counts%2 == 0){
       this.showMenu = !this.showMenu;
+      this.loginService.emitAction(this.showMenu);
     }
   }
   getMenu(){

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,11 @@ export class LoginService {
       {name: 'Live Chat' , icon:'comment' , menuNo: 7 , path: 'live-chat'},
       {name: 'Pending Tasks' , icon:'sync' , menuNo: 8 , path: 'pending-tasks'},
     ];
+  }
+  actionSubject = new Subject<any>();
+  actionObservable: Observable<any> = this.actionSubject.asObservable();
+
+  emitAction(action: any) {
+    this.actionSubject.next(action);
   }
 }
