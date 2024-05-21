@@ -1,1 +1,48 @@
-<p>time-table works!</p>
+<div class="overflow-auto">
+  <div class="m-3 flex flex-col gap-4 !mx-6">
+    <!-- <div class="flex gap-3 w-full flex-col">
+      <div class="text-xs text-muted items-center flex gap-1 ml-6 flex-row">
+        <div class="gap-1 items-center flex hover:cursor-pointer font-sans" [routerLink]="['/']" routerLinkActive="router-link-active" ><span nz-icon [nzType]="'home'" nzTheme="outline" class=" font-bold"></span> Dashboard</div>
+        <div>/</div>
+        <div class="gap-1 items-center flex hover:cursor-pointer font-sans">Time Table</div>
+      </div>
+      <div class="items-center gap-3 flex w-full ml-6">
+        <span nz-icon [nzType]="'database'" nzTheme="outline" class=" font-bold text-xl"></span>
+        <span class="text-xl font-bold font-sans">Time Table</span>
+      </div>
+    </div> -->
+    <div class="flex flex-row w-full">
+      <div class="w-full  bg-white rounded-md border shadow-md calculateHeight">
+          <div class="flex flex-col gap-1 ">
+            <div class="flex flex-row  h-[70px] items-center overflow-hidden border-b-2 border-gray-200 justify-center w-fit ml-[60px]">
+              <div *ngFor="let day of days; let i = index">
+                <div class="p-3 m-1 h-full text-black  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex justify-center items-center" [ngClass]="{'menuOpenWeek': !screenWidth , 'menuClosedWeek' : screenWidth}">{{day}}</div>
+              </div>
+            </div>
+            <div class="flex flex-col max-h-[455px] overflow-auto pt-2">
+              <div *ngFor="let time of timePerWeek; let i = index" class="flex flex-row">
+                <div class="h-[100px] w-[64px] relative">
+                  <div class="w-fit absolute right-2 top-[-6px] text-xs muted">
+                    {{time?.startTime + ' ' + time?.period }}
+                  </div>
+                  <div class="w-fit absolute right-2 bottom-[-6px] text-xs muted" *ngIf="(i+1) == timePerWeek?.length">
+                    {{time?.endTime + ' ' + time?.period }}
+                  </div>
+                </div>
+                <div class="flex flex-row">
+                  <div  class="border h-[100px]" *ngFor="let d of time?.child"  [ngClass]="{'menuOpenBox': !screenWidth , 'menuClosedBox' : screenWidth}">
+                    <div class="m-1 calculateEachSUbjectHeight border-l-4 flex flex-col p-1"  [ngClass]="{'!pl-2' : screenWidth}" [style.background-color]="time?.color" [style.border-color]="time?.border" *ngIf="d?.isClass">
+                      <div class="text-xs font-semibold">{{d?.subject}}</div>
+                      <div class="text-[11px] pb-1 pt-2">{{d?.teacher}}</div>
+                      <div class="text-[9px] py-1 tracking-widest">{{d?.roomNo}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

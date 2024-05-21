@@ -1,0 +1,39 @@
+.calculateHeight{
+  height: 535px;
+}
+.calculateInnerCardHeight{
+  height: 420px;
+  overflow: auto;
+}
+.widthTable100 {
+  width: 100%;
+}
+.widthTable80 {
+  width: 80%;
+}
+.setBorder{
+  border-left: 1px solid #d1d5db !important;
+}
+.MaxHeight{
+  max-height: 400px;
+  overflow: auto;
+}
+.calculateEachSUbjectHeight{
+  height: calc(100% - 10px);
+}
+.menuOpenBox{
+  width: 143px;
+  transition-duration: 0.5s;
+}
+.menuOpenWeek{
+  width: 136px;
+  transition-duration: 0.5s;
+}
+.menuClosedBox{
+  width: 178px;
+  transition-duration: 0.5s;
+}
+.menuClosedWeek{
+  width: 170px;
+  transition-duration: 0.5s;
+}
