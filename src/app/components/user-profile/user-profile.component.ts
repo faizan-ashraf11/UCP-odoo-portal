@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
-
+import { NzProgressModule } from 'ng-zorro-antd/progress';
 @Component({
   selector: 'app-user-profile',
   standalone: true,
-  imports: [NzIconModule , FormsModule , CommonModule , NzUploadModule],
+  imports: [NzIconModule , FormsModule , CommonModule , NzUploadModule , NzProgressModule ],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss'
 })
@@ -30,4 +30,15 @@ export class UserProfileComponent {
     isShow: false
   }
   file: any;
+  learntSkills: any[] = [
+    { skill: 'Web Developement' , level: '36'},
+    { skill: 'Ui/UX' , level: '100'},
+    { skill: 'DSA' , level: '3'},
+    { skill: 'App Developemenet' , level: '73'},
+  ];
+  societyCertification: any[] = [
+    { certificationPost: 'Event Manager' , event: 'Taakra 2024' , imageUrl: 'assets/taakra.jpg' },
+    { certificationPost: 'President' , event: 'Takhleeq Incubator' , imageUrl: 'assets/takhleeq.png' },
+    { certificationPost: 'Arm Wrestler Rank 5' , event: '' , imageUrl: 'assets/sportsSociety.jpg' },
+  ];
 }
