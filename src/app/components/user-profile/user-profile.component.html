@@ -1,0 +1,66 @@
+<div class="flex flex-col m-3 !mx-28">
+  <div class="flex flex-row gap-3">
+    <div class="flex flex-col w-4/12 bg-white rounded-md h-[280px] !p-4 gap-2.5 items-center">
+      <img [src]="userProfile?.imageUrl" alt="" class="w-28 h-28 rounded-full">
+      <div class="font-semibold tracking-wider gap-2 flex flex-row justify-center items-center w-[80%]">
+        <span nz-icon nzType="user" nzTheme="outline" class="font-bold"></span>
+        <span>{{ userProfile?.name }}</span>
+      </div>
+      <div class="muted tracking-wider gap-2 flex flex-row justify-center items-center w-[80%] text-xs">
+        <span nz-icon nzType="global" nzTheme="outline" class="font-bold"></span>
+        <span>{{ userProfile?.address }}</span>
+      </div>
+      <div class="muted tracking-wider gap-2 flex flex-row justify-center items-center w-[80%] text-xs">
+        <span nz-icon nzType="book" nzTheme="outline" class="font-bold"></span>
+        <span>{{ userProfile?.career }}</span>
+      </div>
+      <nz-upload [nzFileList]="file" class="px-3 py-1 rounded-md bg-[#5c82ff] font-semibold">
+        <button nz-button class="text-white tracking-widest">
+          Update Photo
+        </button>
+      </nz-upload>
+    </div>
+    <div class="flex flex-col w-8/12  bg-white rounded-md h-[280px] p-4 gap-3">
+      <span class="flex font-semibold text-xl">Personal Details</span>
+      <div class="flex flex-wrap w-full gap-3">
+        <div class="flex flex-col w-[48%] gap-2">
+          <span class="flex text-xs muted font-bold tracking-widest">First Name:</span>
+          <span class="flex ml-16 font-semibold">{{ personalDetails?.firstName }}</span>
+        </div>
+        <div class="flex flex-col w-[48%] gap-2">
+          <span class="flex text-xs muted font-bold tracking-widest">Last Name:</span>
+          <span class="flex ml-16 font-semibold">{{ personalDetails?.lastName }}</span>
+        </div>
+        <div class="flex flex-col w-[48%] gap-2">
+          <span class="flex text-xs muted font-bold tracking-widest">Department:</span>
+          <span class="flex ml-16 font-semibold">{{ personalDetails?.department }}</span>
+        </div>
+        <div class="flex flex-col w-[48%] gap-2">
+          <span class="flex text-xs muted font-bold tracking-widest">Contact:</span>
+          <span class="flex ml-16 font-semibold">{{ personalDetails?.phone }}</span>
+        </div>
+        <div class="flex flex-col w-[48%] gap-2">
+          <span class="flex text-xs muted font-bold tracking-widest">Email:</span>
+          <span class="flex ml-16 font-semibold">{{ personalDetails?.emailAddress }}</span>
+        </div>
+        <div class="flex flex-col w-[48%] gap-2">
+          <span class="flex text-xs muted font-bold tracking-widest">Password:</span>
+          <div class="flex flex-row w-full">
+            <ng-container *ngIf="!personalDetails?.isShow">
+              <span class="flex ml-16 font-semibold">{{ personalDetails?.samplePassword }}</span>
+            </ng-container>
+            <ng-container *ngIf="personalDetails?.isShow">
+              <span class="flex ml-16 font-semibold">{{ personalDetails?.password }}</span>
+            </ng-container>
+            <ng-container *ngIf="!personalDetails?.isShow">
+              <span nz-icon nzType="eye" nzTheme="outline" class="ml-auto hover:cursor-pointer" (click)="personalDetails.isShow = !personalDetails.isShow;"></span>
+            </ng-container>
+            <ng-container *ngIf="personalDetails?.isShow">
+              <span nz-icon nzType="eye-invisible" nzTheme="outline" class="ml-auto hover:cursor-pointer" (click)="personalDetails.isShow = !personalDetails.isShow;"></span>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
