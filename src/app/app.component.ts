@@ -5,11 +5,13 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { LoginService } from './services/login.service';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NotificationService } from './services/notification.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet , NzIconModule , NzBadgeModule , NzAvatarModule , RouterLink],
+  imports: [CommonModule, RouterOutlet , NzIconModule , NzBadgeModule , NzAvatarModule , RouterLink , NzDropDownModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: []
@@ -23,16 +25,19 @@ export class AppComponent implements OnInit {
   showMenu: any = false;
   counts: any = 0;
   profileName : any = "Faizan Ashraf";
+  notification: any[] = [];
 
   constructor(
     private loginService: LoginService,
-    public router: Router
+    public router: Router,
+    private notificationService: NotificationService,
   ){
 
   }
   ngOnInit(): void {
     this.getMenu();
     this.loginService.emitAction(this.showMenu);
+    this.getLatestNotifications();
   }
 
   showMenuTrue(){
@@ -44,5 +49,8 @@ export class AppComponent implements OnInit {
   }
   getMenu(){
     this.menuArray = this.loginService.getMenu();
+  }
+  getLatestNotifications(){
+    this.notification = this.notificationService.getNewNotification();
   }
 }

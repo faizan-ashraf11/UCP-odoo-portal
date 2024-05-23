@@ -29,10 +29,18 @@
       </div>
       <div class="flex flex-row gap-4 items-center mr-5">
         <div class="flex flex-row text-black hover:cursor-pointer">
-          <span nz-icon [nzType]="'bell'" nzTheme="outline" class="text-xl font-bold"></span>
-          <nz-badge [nzCount]="5">
+          <span nz-icon [nzType]="'bell'" nzTheme="outline" class="text-xl font-bold" nz-dropdown [nzDropdownMenu]="menu"></span>
+          <nz-badge [nzCount]="(this.notification?.length || 0)">
             <a class="head-example text-xs"></a>
           </nz-badge>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu class="dropDownMenuList">
+              <li *ngFor="let reminder of notification" class="flex flex-row gap-2.5 p-1 border-2 rounded-md m-1 hover:cursor-pointer" [routerLink]="'./notification'">
+                <span class="w-8/12 flex items-center">{{ reminder.announcement }}</span>
+                <span class=" m-1 p-1 bg-[#5c82ff] rounded-md w-4/12 ml-2 flex items-center justify-center text-white">{{ reminder.subject }}</span>
+              </li>
+            </ul>
+          </nz-dropdown-menu>
         </div>
         <nz-avatar class="hover:cursor-pointer bg-[#5c82ff]" nzSrc="/src/assets/ProfilePic.png" nzShape="circle" [nzText]="profileName[0]" [routerLink]="'/user-profile'"></nz-avatar>
       </div>
