@@ -34,7 +34,7 @@
                       <td  [class]="col?.class">{{i+1}}</td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'challanNumber'">
-                      <td [class]="col?.class" class="text-[#5c82ff] font-semibold">{{data?.challanNumber || '-' }}</td>
+                      <td [class]="col?.class" class="text-[--base-color] font-semibold">{{data?.challanNumber || '-' }}</td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'dueDate'">
                       <td [class]="col?.class">{{data?.dueDate | date:'short' }}</td>
@@ -51,7 +51,7 @@
                     </ng-container>
                     <ng-container *ngSwitchCase="'printUrl'">
                       <td [class]="col?.class">
-                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[--base-color] text-white rounded-full text-base hover:cursor-pointer"></span>
                       </td>
                     </ng-container>
                     <ng-container *ngSwitchDefault>

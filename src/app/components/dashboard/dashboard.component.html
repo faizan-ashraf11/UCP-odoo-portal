@@ -10,7 +10,7 @@
       <div class="flex flex-wrap gap-3 w-full" >
         <div class="w-[30%] h-[220px] bg-white shadow-md rounded flex flex-col gap-2 hover:cursor-pointer p-3"  *ngFor="let subjectCards of subjects">
           <div class="text-base font-bold font-sans mx-auto">{{subjectCards?.name}}</div>
-          <div class="text-base font-semibold font-sans underline text-[#3457D5]">{{subjectCards?.teacherName}}</div>
+          <div class="text-base font-semibold font-sans underline text-[--base-color]">{{subjectCards?.teacherName}}</div>
           <div class="text-base font-semibold font-sans"><span class="text-base font-bold text-black font-sans">Projected Grade: </span>{{subjectCards?.cgpa}}</div>
           <div class="text-base font-semibold font-sans"><span class="text-base font-bold text-black font-sans">Attendence: </span>{{subjectCards?.attendence}}%</div>
           <button class=" mx-auto mt-3" (click)="viewSubjectDetails(subjectCards?.subjectId , subjectCards?.teacherId)">

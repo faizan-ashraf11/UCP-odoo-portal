@@ -7,7 +7,7 @@
     </div>
     <div class=" gap-2 flex flex-col m-3">
       <div *ngFor="let menu of menuArray" class="flex flex-col">
-        <div class=" flex flex-row text-lg gap-2 items-center muted text-gray-500  hover:cursor-pointer p-2 rounded-md hover:bg-[#3457d528]" [ngClass]="{'!bg-[#3457d548] !text-[#3457D5] !shadow-2xl !z-10':  ('/'+menu?.path) == router.url}" (click)="selectedMenu = menu?.menuNo;" [routerLink]="['./' ,menu?.path]"  >
+        <div class=" flex flex-row text-lg gap-2 items-center muted text-gray-500  hover:cursor-pointer p-2 rounded-md hover:bg-[--menu-hover]" [ngClass]="{'!bg-[--menu-select-bg] !text-[--base-color] !shadow-2xl !z-10':  ('/'+menu?.path) == router.url}" (click)="selectedMenu = menu?.menuNo;" [routerLink]="['./' ,menu?.path]"  >
           <span nz-icon [nzType]="menu?.icon" nzTheme="outline" class=" font-semibold"></span>
           <span class="">{{menu?.name}}</span>
         </div>
@@ -37,12 +37,12 @@
             <ul nz-menu class="dropDownMenuList">
               <li *ngFor="let reminder of notification" class="flex flex-row gap-2.5 p-1 border-2 rounded-md m-1 hover:cursor-pointer" [routerLink]="'./notification'">
                 <span class="w-8/12 flex items-center">{{ reminder.announcement }}</span>
-                <span class=" m-1 p-1 bg-[#5c82ff] rounded-md w-4/12 ml-2 flex items-center justify-center text-white">{{ reminder.subject }}</span>
+                <span class=" m-1 p-1 bg-[--base-color] rounded-md w-4/12 ml-2 flex items-center justify-center text-white">{{ reminder.subject }}</span>
               </li>
             </ul>
           </nz-dropdown-menu>
         </div>
-        <nz-avatar class="hover:cursor-pointer bg-[#5c82ff]" nzSrc="/src/assets/ProfilePic.png" nzShape="circle" [nzText]="profileName[0]" [routerLink]="'/user-profile'"></nz-avatar>
+        <nz-avatar class="hover:cursor-pointer bg-[--base-color]" nzSrc="/src/assets/ProfilePic.png" nzShape="circle" [nzText]="profileName[0]" [routerLink]="'/user-profile'"></nz-avatar>
       </div>
     </div>
     <!-- Lower Screen -->

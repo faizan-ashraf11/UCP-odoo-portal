@@ -41,8 +41,14 @@ $ucp-student-portal-theme: mat.define-light-theme((
 @tailwind utilities;
 
 :root{
-  --light-blue-color: #0062FF;
-  --menu-bg: linear-gradient(45deg, rgba(0, 0, 255, 0.619), transparent);
+  --base-color: #5c82ff;
+  --menu-hover: #3457d528;
+  --menu-select-bg: #3457d548;
+  --dark-base-color: #5B42F3;
+  --mid-base-color: #5c82ff7e;
+  --light-green-color: #87d068;
+  --navy-blue-color: #108ee9;
+  --warn-color: #fecaca;
 }
 
 html, body { height: 100%; }
@@ -79,7 +85,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --tw-bg-opa
 
   /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-        background: #5c82ff;
+        background: --base-color;
     }
 
 html, body { height: 100%; }
@@ -90,7 +96,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
   .ant-progress-success-bg, .ant-progress-bg {
     position: relative;
-    background-color: #5c82ff !important;
+    background-color: --base-color !important;
     transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
   }
 }

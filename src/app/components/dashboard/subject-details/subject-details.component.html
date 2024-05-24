@@ -45,7 +45,7 @@
                     </ng-container>
                     <ng-container *ngSwitchCase="'attachmentFile'">
                       <td [class]="col?.class">
-                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[--base-color] text-white rounded-full text-base hover:cursor-pointer"></span>
                       </td>
                     </ng-container>
                     <ng-container *ngSwitchDefault>
@@ -223,7 +223,7 @@
                     </ng-container>
                     <ng-container *ngSwitchCase="'fileLink'">
                       <td [class]="col?.class">
-                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[--base-color] text-white rounded-full text-base hover:cursor-pointer"></span>
                       </td>
                     </ng-container>
                     <ng-container *ngSwitchDefault>
@@ -259,12 +259,12 @@
 
                     <ng-container *ngSwitchCase="'downloadLink'">
                       <td [class]="col?.class">
-                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[--base-color] text-white rounded-full text-base hover:cursor-pointer"></span>
                       </td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'uploadLink'">
                       <td [class]="col?.class">
-                        <span nz-icon nzType="upload" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                        <span nz-icon nzType="upload" nzTheme="outline" class="px-1.5 py-[2px] bg-[--base-color] text-white rounded-full text-base hover:cursor-pointer"></span>
                       </td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'assessmentDate'">
@@ -306,12 +306,12 @@
 
                     <ng-container *ngSwitchCase="'downloadLink'">
                       <td [class]="col?.class">
-                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[--base-color] text-white rounded-full text-base hover:cursor-pointer"></span>
                       </td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'uploadLink'">
                       <td [class]="col?.class">
-                        <span nz-icon nzType="upload" nzTheme="outline" class="px-1.5 py-[2px] bg-[#5c82ff] text-white rounded-full text-base hover:cursor-pointer"></span>
+                        <span nz-icon nzType="upload" nzTheme="outline" class="px-1.5 py-[2px] bg-[--base-color] text-white rounded-full text-base hover:cursor-pointer"></span>
                       </td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'startDate'">
@@ -335,15 +335,15 @@
             <div class="flex flex-row gap-4 w-full justify-end">
               <div class="gap-3 flex flex-row">
                 <span class="text-base font-sans font-bold">Class Average</span>
-                <span class=" px-2 py-1 bg-[#5c82ff7e] rounded-md text-white">{{gradeBookData?.classAverage | number:'1.2-2'}} / 100</span>
+                <span class=" px-2 py-1 bg-[--mid-base-color] rounded-md text-white">{{gradeBookData?.classAverage | number:'1.2-2'}} / 100</span>
               </div>
               <div class="gap-3 flex flex-row">
                 <span class="text-base font-sans font-bold">Course Percentage</span>
-                <span class=" px-2 py-1 bg-[#5c82ff7e] rounded-md text-white">{{gradeBookData?.coursePercentage | number:'1.2-2'}} / 100</span>
+                <span class=" px-2 py-1 bg-[--mid-base-color] rounded-md text-white">{{gradeBookData?.coursePercentage | number:'1.2-2'}} / 100</span>
               </div>
               <div class="gap-3 flex flex-row">
                 <span class="text-base font-sans font-bold">Course Grade</span>
-                <span class=" px-2 py-1 bg-[#5c82ff7e] rounded-md text-white">{{gradeBookData?.courseGrade}}</span>
+                <span class=" px-2 py-1 bg-[--mid-base-color] rounded-md text-white">{{gradeBookData?.courseGrade}}</span>
               </div>
             </div>
             <div class="flex flex-col gap-2">

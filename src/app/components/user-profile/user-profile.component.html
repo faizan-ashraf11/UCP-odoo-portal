@@ -15,7 +15,7 @@
         <span nz-icon nzType="book" nzTheme="outline" class="font-bold"></span>
         <span>{{ userProfile?.career }}</span>
       </div>
-      <nz-upload [nzFileList]="file" class="px-3 py-1 rounded-md bg-[#5c82ff] font-semibold">
+      <nz-upload [nzFileList]="file" class="px-3 py-1 rounded-md bg-[--base-color] font-semibold">
         <button nz-button class="text-white tracking-widest">
           Update Photo
         </button>
@@ -76,7 +76,7 @@
         <div class="flex flex-col w-full" *ngFor="let skill of learntSkills">
           <span class="flex font-semibold tracking-widest text-sm">{{ skill?.skill }}</span>
           <!-- 100: Mster , 73: Advanced , 36: Intermediate , 0: Beginner -->
-          <nz-progress [nzPercent]="skill?.level" [nzStrokeColor]="{ '0%': '#108ee9', '50%': '#87d068' , '100%': '#5c82ff'}" class="ml-3"></nz-progress>
+          <nz-progress [nzPercent]="skill?.level" [nzStrokeColor]="{ '0%': 'var(--navy-blue-color)', '50%': 'var(--light-green-color)' , '100%': 'var(--base-color)'}" class="ml-3"></nz-progress>
           <div class="grid grid-cols-4 muted text-xs ">
             <span class="ml-[0px]">Beginner</span>
             <span class="ml-[10%]">Intermediate</span>
