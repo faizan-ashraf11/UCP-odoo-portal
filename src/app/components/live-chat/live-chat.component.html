@@ -1,6 +1,6 @@
 <div class="h-[87vh] rounded-md m-3 !mx-6 shadow-md flex flex-row gap-2"  [ngClass]="{'screenWidthFull': tableWidth , 'screenWidthOpen': !tableWidth}">
   <div class=" w-3/12 h-full bg-[#5c82ff18] rounded-md shadow-md border-2 !border-gray-300">
-    <div *ngFor="let person of constact" class="flex flex-row gap-1.5 m-1.5 bg-white rounded-md border h-[60px] hover:shadow-lg hover:cursor-pointer">
+    <div *ngFor="let person of constact" class="flex flex-row gap-1.5 m-1.5 bg-white rounded-md border h-[60px] hover:shadow-lg hover:cursor-pointer" (click)="selectContact(person?.chatId)">
       <div class="w-2/12 m-0.5">
         <img [src]="person?.imageUrl" alt="" class="w-full h-[55px] rounded-md bg-black border shadow-md">
       </div>
