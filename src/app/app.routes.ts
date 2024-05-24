@@ -9,7 +9,7 @@ export const routes: Routes = [
   { path: 'exam-result' , data:{title: 'Exam Result'} , loadChildren:() => import("./components/exam-result/exam-result.module").then(m=>m.ExamResultModule) },
   { path: 'invoices' , data:{title: 'Invoices'} , loadChildren:() => import("./components/invoices/invoices.module").then(m=>m.InvoicesModule) },
   { path: 'time-table' , data:{title: 'Time Table'} , loadChildren:() => import("./components/time-table/time-table.module").then(m=>m.TimeTableModule) },
-  { path: 'live-chat' , data:{title: 'Live Chat'} , component: CommingSoonComponent},
+  { path: 'live-chat' , data:{title: 'Live Chat'} , loadChildren:() => import("./components/live-chat/live-chat.module").then(m=> m.LiveChatModule)},
   { path: 'pending-tasks' , data:{title: 'Pending Tasks'} , component: CommingSoonComponent},
   { path: 'user-profile' , data:{title: 'Profile'} , loadChildren:() => import("./components/user-profile/user-profile.module").then(m=>m.UserProfileModule) },
   { path: '**' , component: NotFoundComponent}
