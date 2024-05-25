@@ -1,4 +1,4 @@
-<div class="flex flex-row !bg-[--screen-back-color] h-screen overflow-hidden">
+<div class="flex flex-row !bg-[--screen-back-color] h-screen overflow-hidden" *ngIf="authentication">
   <!-- Left Side Menu -->
   <div class="bg-[--contrast-base-color] border-r border-gray-300 h-screen !min-w-[180px] !max-w-[180px] flex flex-col rounded-r-md" [ngClass]="{'MenuClose' : showMenu , 'MenuOpen' : !showMenu}">
     <div class="flex flex-row justify-center items-center" >
@@ -51,3 +51,7 @@
     </div>
   </div>
 </div>
+<div *ngIf="!authentication">
+  <router-outlet></router-outlet>
+</div>
+

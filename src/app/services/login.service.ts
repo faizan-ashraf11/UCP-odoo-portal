@@ -8,6 +8,8 @@ export class LoginService {
 
   constructor() { }
 
+  isAuthenticated: any = false;
+
   getMenu(): any[]{
     return [
       {name: 'Dashboard' , icon:'appstore' , menuNo: 1 , path: 'dashboard'},

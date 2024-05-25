@@ -25,13 +25,14 @@ export class AppComponent implements OnInit {
   showMenu: any = false;
   profileName : any = "Faizan Ashraf";
   notification: any[] = [];
+  authentication: any ;
 
   constructor(
     private loginService: LoginService,
     public router: Router,
     private notificationService: NotificationService,
   ){
-
+    this.authentication = this.loginService?.isAuthenticated;
   }
   ngOnInit(): void {
     this.getMenu();

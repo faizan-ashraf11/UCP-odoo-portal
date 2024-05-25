@@ -12,5 +12,6 @@ export const routes: Routes = [
   { path: 'live-chat' , data:{title: 'Live Chat'} , loadChildren:() => import("./components/live-chat/live-chat.module").then(m=> m.LiveChatModule)},
   { path: 'pending-tasks' , data:{title: 'Pending Tasks'} , component: CommingSoonComponent},
   { path: 'user-profile' , data:{title: 'Profile'} , loadChildren:() => import("./components/user-profile/user-profile.module").then(m=>m.UserProfileModule) },
+  { path: 'login' , data:{title: 'Login'} , loadChildren:() => import("./components/login/login.module").then(m=>m.LoginModule) },
   { path: '**' , component: NotFoundComponent}
 ];

@@ -1,0 +1,40 @@
+<div class="w-full bg-[--base-color] h-screen flex flex-row">
+  <div class="w-6/12 h-full bg-white px-48 pt-20 flex flex-col gap-4">
+    <div class="flex flex-col gap-1.5">
+      <span class="text-3xl font-bold">Login</span>
+      <span class="text-sm muted">How do i get started checking my information at?</span>
+    </div>
+    <div>
+      <span class="flex flex-row gap-2 text-sm border rounded-full items-center justify-center p-2 shadow-lg hover:cursor-pointer"><img src="/assets/microsoft.png" alt="" class="w-[30px] h-[30px]"> <span>Sign In with Microsoft</span></span>
+    </div>
+    <div class="border-t-2 h-2 relative mt-5">
+      <span class="absolute -top-2.5 left-36 muted text-xs bg-white flex"> or sign in with Email </span>
+    </div>
+    <div class="flex flex-col gap-1.5">
+      <div class="flex flex-col">
+        <span class="text-sm muted">Email</span>
+        <input nz-input placeholder="Enter Your Email" [(ngModel)]="email" type="text" class=" w-full border !border-gray-300 rounded-full h-[40px] m-2 p-3 tracking-wide text-sm focus-visible:!border-none !outline-1 !outline-gray-300 shadow-lg" />
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm muted">Password</span>
+        <input nz-input placeholder="Enter Your Password" [(ngModel)]="password" type="text" class=" w-full border !border-gray-300 rounded-full h-[40px] m-2 p-3 tracking-wide text-sm focus-visible:!border-none !outline-1 !outline-gray-300 shadow-lg" />
+      </div>
+    </div>
+    <button class="ml-auto">
+      <span>Login</span>
+    </button>
+  </div>
+  <div class="w-6/12 bg-transparent h-full !p-20">
+    <div class="w-full h-full bg-[#8272E7] z-10 rounded-2xl relative setTransparency">
+      <span class="flex w-[60px] h-[60px] absolute top-[130px] right-[-30px]"><img src="/assets/100.png" alt="" class="w-[60px] h-[60px] rounded-full bg-white p-[0.7rem]"></span>
+      <span class="flex w-[60px] h-[60px] absolute top-[290px] left-[-30px]"><img src="/assets/handshake.jfif" alt="" class="w-[60px] h-[60px] rounded-full bg-white p-[0.7rem]"></span>
+      <div class="flex flex-col py-9 pl-16 pr-20 gap-2">
+        <span class="text-2xl text-white font-bold">Very good <span class="text-red-400">Grades</span> are waiting for you</span>
+        <span class="text-2xl text-white font-bold"> Login Now</span>
+      </div>
+      <div class="flex absolute w-[600px] h-[400px] top-[90px] left-[0px] ">
+        <img src="/assets/loginNow2.png" alt="" class="w-[600px] h-[400px] rounded-full p-[0.7rem]">
+      </div>
+    </div>
+  </div>
+</div>
