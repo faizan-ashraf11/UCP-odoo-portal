@@ -1,7 +1,7 @@
 <div class="flex flex-col m-3 !mx-28 gap-2.5 overflow-hidden">
   <div class="flex flex-row gap-3">
     <!-- Person Intro -->
-    <div class="flex flex-col w-4/12 bg-white rounded-md h-[250px] !p-4 gap-2 items-center">
+    <div class="flex flex-col w-4/12 bg-[--contrast-base-color] rounded-md h-[250px] !p-4 gap-2 items-center">
       <img [src]="userProfile?.imageUrl" alt="" class="w-24 h-24 rounded-full">
       <div class="font-semibold tracking-wider gap-2 flex flex-row justify-center items-center w-[80%]">
         <span nz-icon nzType="user" nzTheme="outline" class="font-bold"></span>
@@ -16,13 +16,13 @@
         <span>{{ userProfile?.career }}</span>
       </div>
       <nz-upload [nzFileList]="file" class="px-3 py-1 rounded-md bg-[--base-color] font-semibold">
-        <button nz-button class="text-white tracking-widest">
+        <button nz-button class="text-[--text-color] tracking-widest">
           Update Photo
         </button>
       </nz-upload>
     </div>
     <!-- Personal Detail -->
-    <div class="flex flex-col w-8/12  bg-white rounded-md h-[250px] p-4 gap-2">
+    <div class="flex flex-col w-8/12  bg-[--contrast-base-color] rounded-md h-[250px] p-4 gap-2">
       <span class="flex font-semibold text-xl">Personal Details</span>
       <div class="flex flex-wrap w-full gap-2">
         <div class="flex flex-col w-[48%] gap-2">
@@ -67,10 +67,10 @@
   </div>
   <div class="flex flex-row gap-3">
     <!-- Certified Skills -->
-    <div class="flex flex-col w-6/12 bg-white rounded-md h-[275px] max-h-[275px] hover:!overflow-auto overflow-hidden !p-4 gap-2.5">
+    <div class="flex flex-col w-6/12 bg-[--contrast-base-color] rounded-md h-[275px] max-h-[275px] hover:!overflow-auto overflow-hidden !p-4 gap-2.5">
       <div class="flex flex-row mb-1">
         <span class="flex font-semibold text-xl">Skills:</span>
-        <!-- <button class="py-1 px-3 bg-[#5c82ff] rounded-md text-white font-semibold ml-auto tracking-widest text-base flex items-center gap-2"><span nz-icon nzType="plus-circle" nzTheme="outline"></span> <span>Add Skills</span></button> -->
+        <!-- <button class="py-1 px-3 bg-[#5c82ff] rounded-md text-[--text-color] font-semibold ml-auto tracking-widest text-base flex items-center gap-2"><span nz-icon nzType="plus-circle" nzTheme="outline"></span> <span>Add Skills</span></button> -->
       </div>
       <div class="flex flex-col w-full gap-3">
         <div class="flex flex-col w-full" *ngFor="let skill of learntSkills">
@@ -87,7 +87,7 @@
       </div>
     </div>
     <!-- Society Certification -->
-    <div class="flex flex-col w-6/12  bg-white rounded-md h-[275px] max-h-[275px] hover:!overflow-auto overflow-hidden !p-4 gap-2.5">
+    <div class="flex flex-col w-6/12  bg-[--contrast-base-color] rounded-md h-[275px] max-h-[275px] hover:!overflow-auto overflow-hidden !p-4 gap-2.5">
       <span class="flex font-semibold text-xl mb-1">Society Certifications:</span>
       <div class="flex flex-wrap w-full gap-2 justify-center items-center h-full">
         <div class="w-4/12 flex flex-col gap-2 items-center justify-center" *ngFor="let cert of societyCertification">

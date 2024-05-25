@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="flex flex-row w-full">
-      <div class="w-full  bg-white rounded-md border shadow-md calculateHeight"   [ngClass]="{'widthTable100': tableWidth , 'widthTable80': !tableWidth}">
+      <div class="w-full  bg-[--contrast-base-color] rounded-md border shadow-md calculateHeight"   [ngClass]="{'widthTable100': tableWidth , 'widthTable80': !tableWidth}">
         <div class="p-3 tableWrap overflow-auto">
           <nz-table #basicTable [nzData]="invoicesData" nzFrontPagination="false" class="rounded-md border calculateInnerCardHeight w-full">
             <thead>
@@ -44,14 +44,14 @@
                     </ng-container>
                     <ng-container *ngSwitchCase="'status'">
                       <td [class]="col?.class">
-                        <div class="px-2 py-1 font-semibold flex items-center justify-center rounded-md shadow-md text-white !tracking-widest" [ngClass]="{'bg-green-400': (data?.status == 'Paid') , 'bg-red-400': (data?.status == 'Un-Paid') }">
+                        <div class="px-2 py-1 font-semibold flex items-center justify-center rounded-md shadow-md text-[--text-color] !tracking-widest" [ngClass]="{'bg-green-400': (data?.status == 'Paid') , 'bg-red-400': (data?.status == 'Un-Paid') }">
                           {{data?.status || '-' }}
                         </div>
                       </td>
                     </ng-container>
                     <ng-container *ngSwitchCase="'printUrl'">
                       <td [class]="col?.class">
-                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[--base-color] text-white rounded-full text-base hover:cursor-pointer"></span>
+                        <span nz-icon nzType="download" nzTheme="outline" class="px-1.5 py-[2px] bg-[--base-color] text-[--text-color] rounded-full text-base hover:cursor-pointer"></span>
                       </td>
                     </ng-container>
                     <ng-container *ngSwitchDefault>

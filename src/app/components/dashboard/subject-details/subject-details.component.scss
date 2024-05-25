@@ -2,7 +2,7 @@
   border-bottom: 2px solid var(--base-color);
   transition: .1s;
   --tw-text-opacity: 1 !important;
-  color: rgb(92 130 255 / var(--tw-text-opacity)) !important;
+  color: var(--base-color) !important;
 }
 .calculateHeight{
   height: 450px;

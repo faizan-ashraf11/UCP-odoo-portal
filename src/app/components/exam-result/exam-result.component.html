@@ -12,22 +12,22 @@
       </div>
     </div>
     <div class="flex flex-row w-full">
-      <div class="w-full  bg-white rounded-md border shadow-md calculateHeight">
+      <div class="w-full  bg-[--contrast-base-color] rounded-md border shadow-md calculateHeight">
         <div class="flex flex-row gap-1 text-base font-sans border-b-2 border-gray-200 p-2">
           <div *ngFor="let tab of tabs">
-            <div class="p-2 !pb-0 text-black  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex" (click)="selectedTab = tab?.tab;" [ngClass]="{'tabChange': selectedTab == tab?.tab}">{{tab?.tabName}}</div>
+            <div class="p-2 !pb-0 text-[--dashoard-text-color]  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex" (click)="selectedTab = tab?.tab;" [ngClass]="{'tabChange': selectedTab == tab?.tab}">{{tab?.tabName}}</div>
           </div>
         </div>
         <div class="p-3 tableWrap !max-h-[395px] overflow-auto" *ngIf="selectedTab == 1">
           <div class="flex flex-wrap gap-3 w-full" >
-            <div class="w-[30%] h-[180px] bg-white shadow-md rounded flex flex-col gap-2 hover:cursor-pointer border"  *ngFor="let subjectCards of activeSubjects"  (click)="viewSubjectDetails(subjectCards?.subjectId , subjectCards?.teacherId)">
+            <div class="w-[30%] h-[180px] bg-[--contrast-base-color] shadow-md rounded flex flex-col gap-2 hover:cursor-pointer border"  *ngFor="let subjectCards of activeSubjects"  (click)="viewSubjectDetails(subjectCards?.subjectId , subjectCards?.teacherId)">
               <div class="bg-[--menu-select-bg] flex w-full">
                 <div class="text-base font-bold font-sans py-3 mx-auto w-fit">{{subjectCards?.name}}</div>
               </div>
               <div class="flex flex-col px-3 pb-3 gap-2">
                 <div class="text-base font-semibold font-sans underline text-[--base-color]">{{subjectCards?.teacherName}}</div>
-                <div class="text-base font-semibold font-sans"><span class="text-base font-bold text-black font-sans">Projected Grade: </span>{{subjectCards?.cgpa}}</div>
-                <div class="text-base font-semibold font-sans"><span class="text-base font-bold text-black font-sans">Attendence: </span>{{subjectCards?.attendence}}%</div>
+                <div class="text-base font-semibold font-sans"><span class="text-base font-bold text-[--dashoard-text-color] font-sans">Projected Grade: </span>{{subjectCards?.cgpa}}</div>
+                <div class="text-base font-semibold font-sans"><span class="text-base font-bold text-[--dashoard-text-color] font-sans">Attendence: </span>{{subjectCards?.attendence}}%</div>
               </div>
             </div>
           </div>

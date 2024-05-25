@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="flex flex-row w-full">
-      <div class="w-full  bg-white rounded-md border shadow-md calculateHeight">
+      <div class="w-full  bg-[--contrast-base-color] rounded-md border shadow-md calculateHeight">
         <div class="flex flex-row p-3 w-full">
           <div class="flex w-10/12 gap-3 flex-col">
             <div *ngFor="let not of notification"  class="flex flex-row gap-3 h-[40px] items-center bg-gray-100 rounded-md shadow-md w-full border hover:cursor-pointer" [routerLink]="['../dashboard/subject-detail' , not?.subjectId , not?.teacherId ]">

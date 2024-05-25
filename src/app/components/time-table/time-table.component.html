@@ -12,11 +12,11 @@
       </div>
     </div> -->
     <div class="flex flex-row w-full">
-      <div class="w-full  bg-white rounded-md border shadow-md calculateHeight">
+      <div class="w-full  bg-[--contrast-base-color] rounded-md border shadow-md calculateHeight">
           <div class="flex flex-col gap-1 ">
             <div class="flex flex-row  h-[70px] items-center overflow-hidden border-b-2 border-gray-200 justify-center w-fit ml-[60px]">
               <div *ngFor="let day of days; let i = index">
-                <div class="p-3 m-1 h-full text-black  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex justify-center items-center" [ngClass]="{'menuOpenWeek': !screenWidth , 'menuClosedWeek' : screenWidth}">{{day}}</div>
+                <div class="p-3 m-1 h-full text-[--dashoard-text-color]  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex justify-center items-center" [ngClass]="{'menuOpenWeek': !screenWidth , 'menuClosedWeek' : screenWidth}">{{day}}</div>
               </div>
             </div>
             <div class="flex flex-col max-h-[455px] overflow-auto pt-2">
