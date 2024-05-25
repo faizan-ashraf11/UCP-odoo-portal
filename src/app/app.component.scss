@@ -1,68 +1,6 @@
 .mixBlend{
   mix-blend-mode: multiply;
 }
-#checkbox {
-  display: none;
-}
-
-.toggle {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 5px;
-  transition-duration: .5s;
-}
-
-.bars {
-  width: 100%;
-  height: 4px;
-  background-color: var(--base-color);
-  border-radius: 4px;
-}
-
-#bar2 {
-  transition-duration: .8s;
-}
-
-#bar1 {
-  width: 50%;
-}
-
-#bar2 {
-  width: 75%;
-}
-
-#checkbox:checked + .toggle .bars {
-  position: absolute;
-  transition-duration: .5s;
-}
-
-#checkbox:checked + .toggle #bar2 {
-  transform: scaleX(0);
-  transition-duration: .1s;
-}
-
-#checkbox:checked + .toggle #bar1 {
-  width: 100%;
-  transform: rotate(45deg);
-  transition-duration: .5s;
-}
-
-#checkbox:checked + .toggle #bar3 {
-  width: 100%;
-  transform: rotate(-45deg);
-  transition-duration: .5s;
-}
-
-#checkbox:checked + .toggle {
-  transition-duration: .5s;
-  transform: rotate(180deg);
-}
 
 .MenuClose{
   position: absolute;
@@ -75,7 +13,7 @@
 
 .MenuOpen{
   position: static;
-  padding: 0.75rem;
+  // padding: 0.75rem;
   transform: translateX(0px);
   transition-duration: 1s;
 }

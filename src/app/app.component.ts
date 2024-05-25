@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
   menuArray: any[] = [];
   selectedMenu : any = 1;
   showMenu: any = false;
-  counts: any = 0;
   profileName : any = "Faizan Ashraf";
   notification: any[] = [];
 
@@ -41,11 +40,8 @@ export class AppComponent implements OnInit {
   }
 
   showMenuTrue(){
-    this.counts++;
-    if(this.counts%2 == 0){
       this.showMenu = !this.showMenu;
       this.loginService.emitAction(this.showMenu);
-    }
   }
   getMenu(){
     this.menuArray = this.loginService.getMenu();

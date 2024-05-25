@@ -9,7 +9,7 @@
 }
 .textBase{
   color: var(--base-color);
-  font-size: 11px;
+  font-size: 10px;
 }
 .button {
   display: inline-block;
@@ -22,7 +22,7 @@
   font-size: 13px;
   box-shadow: 0px 14px 56px -11px var(--base-color);
   width: 15em;
-  padding: 1em;
+  padding: 0.5em;
   transition: all 0.4s;
   cursor: pointer;
  }

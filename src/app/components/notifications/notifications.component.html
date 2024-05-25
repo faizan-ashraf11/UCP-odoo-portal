@@ -26,7 +26,7 @@
           </div>
           <div class="flex w-2/12 p-3">
             <nz-timeline>
-              <nz-timeline-item *ngFor="let not of notification" [nzColor]="not?.isNew? 'green' : 'gray'"><span class="h-[35px] flex text-[--base-color] font-semibold">{{ not.notificationDate | date}}</span></nz-timeline-item>
+              <nz-timeline-item *ngFor="let not of notification" [nzColor]="not?.isNew? 'green' : 'gray'"><span class="h-[35px] flex text-[--base-color] font-semibold text-xs">{{ not.notificationDate | date}}</span></nz-timeline-item>
             </nz-timeline>
           </div>
         </div>

@@ -44,7 +44,7 @@
                     </ng-container>
                     <ng-container *ngSwitchCase="'status'">
                       <td [class]="col?.class">
-                        <div class="px-2 py-1 font-semibold flex items-center justify-center rounded-md shadow-md text-[--text-color] !tracking-widest" [ngClass]="{'bg-green-400': (data?.status == 'Paid') , 'bg-red-400': (data?.status == 'Un-Paid') }">
+                        <div class="px-2 py-1 font-semibold flex items-center justify-center rounded-full shadow-md !tracking-widest" [ngClass]="{'bg-green-300': (data?.status == 'Paid') , 'bg-red-300': (data?.status == 'Un-Paid') }">
                           {{data?.status || '-' }}
                         </div>
                       </td>

@@ -41,19 +41,20 @@ $ucp-student-portal-theme: mat.define-light-theme((
 @tailwind utilities;
 
 :root{
-  --base-color: #00ABE4;
-  --menu-hover: #E9F1FA;
-  --menu-select-bg: #00abe456;
-  --dark-base-color: #00bfff;
-  --mid-base-color: #00bfff93;
+  --base-color: #6930C3;
+  --menu-hover: #cfb1ffbf;
+  --menu-select-bg: #6830c35c;
+  --dark-base-color: #6200ff;
+  --mid-base-color: #6830c39d;
   --light-green-color: #87d068;
   --navy-blue-color: #108ee9;
   --warn-color: #fecaca;
   --contrast-base-color: white;
   --text-color: white;
-  --table-hover: #00bfff30;
+  --table-hover: #6830c32b;
   --menu-text-color: #6b7280;
   --dashoard-text-color: black;
+  --screen-back-color: #6830c321;
 }
 
 html, body { height: 100%; }
@@ -65,9 +66,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --tw-bg-opa
 
 
 .tableWrap{
+  & thead{
+    &tr{
+      &th{
+        padding: 2px 6px !important;
+        font-size: 10px !important;
+      }
+    }
+  }
   & tbody{
     & tr{
       height: 30px !important;
+      & td{
+        padding: 2px 6px;
+        font-size: 10px !important;
+      }
         &:hover{
             & td{
                 background-color:  var(--table-hover) !important;
@@ -76,11 +89,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --tw-bg-opa
     }
   }
 }
-
 .ant-table-thead > tr > th, .ant-table-tbody > tr > td, .ant-table tfoot > tr > th, .ant-table tfoot > tr > td {
   position: relative;
-  padding: 8px 8px;
+  padding: 6px 8px !important;
   overflow-wrap: break-word;
+  font-size: 12px !important;
 }
 
 ::-webkit-scrollbar { width: 7px;height: 7px;border-radius: 8px; }
