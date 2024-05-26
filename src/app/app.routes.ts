@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: 'invoices' , data:{title: 'Invoices'} , loadChildren:() => import("./components/invoices/invoices.module").then(m=>m.InvoicesModule) },
   { path: 'time-table' , data:{title: 'Time Table'} , loadChildren:() => import("./components/time-table/time-table.module").then(m=>m.TimeTableModule) },
   { path: 'live-chat' , data:{title: 'Live Chat'} , loadChildren:() => import("./components/live-chat/live-chat.module").then(m=> m.LiveChatModule)},
-  { path: 'pending-tasks' , data:{title: 'Pending Tasks'} , component: CommingSoonComponent},
+  { path: 'pending-tasks' , data:{title: 'Pending Tasks'} , loadChildren:() => import("./components/pending-tasks/pending-tasks.module").then(m=> m.PendingTasksModule) },
   { path: 'user-profile' , data:{title: 'Profile'} , loadChildren:() => import("./components/user-profile/user-profile.module").then(m=>m.UserProfileModule) },
   { path: 'login' , data:{title: 'Login'} , loadChildren:() => import("./components/login/login.module").then(m=>m.LoginModule) },
   { path: '**' , component: NotFoundComponent}

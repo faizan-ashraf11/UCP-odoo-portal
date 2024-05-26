@@ -1,1 +1,31 @@
-<p>pending-tasks works!</p>
+<div class="overflow-auto">
+  <div class="m-3 flex flex-col gap-4 !mx-6">
+    <div class="flex gap-3 w-full flex-col">
+      <div class="text-xs text-muted items-center flex gap-1 ml-6 flex-row">
+        <div class="gap-1 items-center flex hover:cursor-pointer font-sans" [routerLink]="['/']" routerLinkActive="router-link-active" ><span nz-icon [nzType]="'home'" nzTheme="outline" class=" font-bold"></span> Dashboard</div>
+        <div>/</div>
+        <div class="gap-1 items-center flex hover:cursor-pointer font-sans">Pending Tasks</div>
+      </div>
+      <div class="items-center gap-3 flex w-full ml-6">
+        <span nz-icon [nzType]="'sync'" nzTheme="outline" class=" font-bold text-xl"></span>
+        <span class="text-xl font-bold font-sans">Pending Tasks</span>
+      </div>
+    </div>
+    <div class="flex flex-row w-full">
+      <div class="w-full  bg-[--contrast-base-color] rounded-md border shadow-md calculateHeight  p-3">
+          <div class="flex flex-wrap gap-3 w-full max-h-[420px] overflow-auto" >
+            <div class="w-[23%] h-[140px] bg-[--contrast-base-color] shadow-md rounded flex flex-col gap-2 hover:cursor-pointer border"  *ngFor="let subjectCards of pendingTasks"  (click)="viewSubjectDetails(subjectCards?.subjectId , subjectCards?.teacherId)">
+              <div class="bg-[--menu-select-bg] flex w-full">
+                <div class="text-xs font-bold font-sans py-3 mx-auto w-fit">{{subjectCards?.subjectName}}</div>
+              </div>
+              <div class="flex flex-col px-3 pb-3 gap-2">
+                <div class="text-xs font-semibold font-sans underline text-[--base-color]">{{subjectCards?.teacherName}}</div>
+                <div class="text-xs font-semibold font-sans"><span class="text-xs font-bold text-[--dashoard-text-color] font-sans">Task: </span>{{subjectCards?.task}}</div>
+                <div class="text-xs font-semibold font-sans"><span class="text-xs font-bold text-[--dashoard-text-color] font-sans">Deadline: </span>{{subjectCards?.deadline | date:'MMMM d, y, h:mm a'}}</div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
