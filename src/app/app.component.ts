@@ -7,6 +7,7 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NotificationService } from './services/notification.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,7 @@ export class AppComponent implements OnInit {
   profileName : any = "Faizan Ashraf";
   notification: any[] = [];
   authentication: any ;
+  subscription!: Subscription;
 
   constructor(
     private loginService: LoginService,
@@ -33,11 +35,17 @@ export class AppComponent implements OnInit {
     private notificationService: NotificationService,
   ){
     this.authentication = this.loginService?.isAuthenticated;
+    if(!this.authentication){
+      this.router.navigate(['./login']);
+    }
   }
   ngOnInit(): void {
     this.getMenu();
     this.loginService.emitAction(this.showMenu);
     this.getLatestNotifications();
+    this.subscription = this.loginService.loginObserveable.subscribe(action => {
+      this.authentication = action;
+  });
   }
 
   showMenuTrue(){

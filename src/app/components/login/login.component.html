@@ -5,7 +5,7 @@
       <span class="text-sm muted">How do i get started checking my information at?</span>
     </div>
     <div>
-      <span class="flex flex-row gap-2 text-sm border rounded-full items-center justify-center p-2 shadow-lg hover:cursor-pointer"><img src="/assets/microsoft.png" alt="" class="w-[30px] h-[30px]"> <span>Sign In with Microsoft</span></span>
+      <span class="flex flex-row gap-2 text-sm border rounded-full items-center justify-center p-2 active:!shadow-md shadow-lg hover:cursor-pointer"><img src="/assets/microsoft.png" alt="" class="w-[30px] h-[30px]"> <span>Sign In with Microsoft</span></span>
     </div>
     <div class="border-t-2 h-2 relative mt-5">
       <span class="absolute -top-2.5 left-36 muted text-xs bg-white flex"> or sign in with Email </span>
@@ -19,8 +19,9 @@
         <span class="text-sm muted">Password</span>
         <input nz-input placeholder="Enter Your Password" [(ngModel)]="password" type="text" class=" w-full border !border-gray-300 rounded-full h-[40px] m-2 p-3 tracking-wide text-sm focus-visible:!border-none !outline-1 !outline-gray-300 shadow-lg" />
       </div>
+      <span class="text-xs text-red-400" *ngIf="isInvalid">Invalid Email or Password</span>
     </div>
-    <button class="ml-auto">
+    <button class="ml-auto" (click)="loginUser()">
       <span>Login</span>
     </button>
   </div>
@@ -35,6 +36,11 @@
       <div class="flex absolute w-[600px] h-[400px] top-[90px] left-[0px] ">
         <img src="/assets/loginNow2.png" alt="" class="w-[600px] h-[400px] rounded-full p-[0.7rem]">
       </div>
+    </div>
+  </div>
+  <div class="absolute flex w-full h-full items-center justify-center bg-[#ffffff7e] z-30" *ngIf="isLoading">
+    <div class="progress-loader">
+      <div class="progress"></div>
     </div>
   </div>
 </div>

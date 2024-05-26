@@ -27,4 +27,10 @@ export class LoginService {
   emitAction(action: any) {
     this.actionSubject.next(action);
   }
+  loginAllowed = new Subject<any>();
+  loginObserveable: Observable<any> = this.loginAllowed.asObservable();
+
+  emitLogin(action: any) {
+    this.loginAllowed.next(action);
+  }
 }
