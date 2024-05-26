@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { AboutUsComponent } from './modales/about-us/about-us.component';
 import { ContactUsComponent } from './modales/contact-us/contact-us.component';
+import { FeedbackComponent } from './modales/feedback/feedback.component';
 
 @Component({
   selector: 'app-root',
@@ -87,6 +88,19 @@ export class AppComponent implements OnInit {
       maxWidth: "950px",
       maxHeight: "300px",
       minHeight: "300px",
+      disableClose: false,
+    }).afterClosed().subscribe(action => {
+      if (action) {
+      }
+    });
+  }
+  openFeedback(){
+    this.matDialog.open(FeedbackComponent , {
+      autoFocus: false,
+      minWidth: "650px",
+      maxWidth: "650px",
+      maxHeight: "480px",
+      minHeight: "480px",
       disableClose: false,
     }).afterClosed().subscribe(action => {
       if (action) {
