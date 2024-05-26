@@ -8,7 +8,7 @@ export class LoginService {
 
   constructor() { }
 
-  isAuthenticated: any = false;
+  isAuthenticated: any = true;
 
   getMenu(): any[]{
     return [

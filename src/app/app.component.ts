@@ -8,6 +8,9 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NotificationService } from './services/notification.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { AboutUsComponent } from './modales/about-us/about-us.component';
+import { ContactUsComponent } from './modales/contact-us/contact-us.component';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +36,7 @@ export class AppComponent implements OnInit {
     private loginService: LoginService,
     public router: Router,
     private notificationService: NotificationService,
+    private matDialog: MatDialog
   ){
     this.authentication = this.loginService?.isAuthenticated;
     if(!this.authentication){
@@ -45,7 +49,7 @@ export class AppComponent implements OnInit {
     this.getLatestNotifications();
     this.subscription = this.loginService.loginObserveable.subscribe(action => {
       this.authentication = action;
-  });
+    });
   }
 
   showMenuTrue(){
@@ -57,5 +61,36 @@ export class AppComponent implements OnInit {
   }
   getLatestNotifications(){
     this.notification = this.notificationService.getNewNotification();
+  }
+  logOut(){
+    this.loginService.emitLogin(false);
+    this.authentication = false;
+    this.router.navigate(['./login']);
+  }
+  openAboutUs(){
+    this.matDialog.open(AboutUsComponent , {
+      autoFocus: false,
+      minWidth: "950px",
+      maxWidth: "950px",
+      maxHeight: "85vh",
+      minHeight: "500px",
+      disableClose: false,
+    }).afterClosed().subscribe(action => {
+      if (action) {
+      }
+    });
+  }
+  openContactUs(){
+    this.matDialog.open(ContactUsComponent , {
+      autoFocus: false,
+      minWidth: "950px",
+      maxWidth: "950px",
+      maxHeight: "300px",
+      minHeight: "300px",
+      disableClose: false,
+    }).afterClosed().subscribe(action => {
+      if (action) {
+      }
+    });
   }
 }

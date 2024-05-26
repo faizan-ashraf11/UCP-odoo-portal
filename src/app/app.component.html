@@ -42,7 +42,15 @@
             </ul>
           </nz-dropdown-menu>
         </div>
-        <nz-avatar class="hover:cursor-pointer bg-[--base-color]" nzSrc="/assets/ProfilePic.png" nzShape="circle" [nzText]="profileName[0]" [routerLink]="'/user-profile'"></nz-avatar>
+        <nz-avatar nz-dropdown [nzDropdownMenu]="profileMenu" class="hover:cursor-pointer bg-[--base-color]" nzSrc="/assets/ProfilePic.png" nzShape="circle" [nzText]="profileName[0]" [routerLink]="'/user-profile'"></nz-avatar>
+        <nz-dropdown-menu #profileMenu="nzDropdownMenu">
+          <ul nz-menu class="profileMenuList">
+            <li class="flex p-1 border rounded-md m-1 hover:cursor-pointer text-center hover:text-[--base-color] hover:underline justify-center items-baseline" (click)="openAboutUs()">About Us</li>
+            <li class="flex p-1 border rounded-md m-1 hover:cursor-pointer text-center hover:text-[--base-color] hover:underline justify-center items-baseline" (click)="openContactUs()">Contact Us</li>
+            <li class="flex p-1 border rounded-md m-1 hover:cursor-pointer text-center hover:text-[--base-color] hover:underline justify-center items-baseline">Feedback</li>
+            <li class="flex p-1 border rounded-md m-1 hover:cursor-pointer text-center bg-[--base-color] hover:underline justify-center items-baseline text-white" (click)="logOut()">Logout</li>
+          </ul>
+        </nz-dropdown-menu>
       </div>
     </div>
     <!-- Lower Screen -->
