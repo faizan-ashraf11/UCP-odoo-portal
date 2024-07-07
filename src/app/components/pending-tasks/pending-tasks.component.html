@@ -13,7 +13,7 @@
     </div>
     <div class="flex flex-row w-full">
       <div class="w-full  bg-[--contrast-base-color] rounded-md border shadow-md calculateHeight  p-3">
-          <div class="flex flex-wrap gap-3 w-full max-h-[420px] overflow-auto" >
+          <div class="flex flex-wrap gap-3 w-full maxHeight overflow-auto" >
             <div class="w-[23%] h-[140px] bg-[--contrast-base-color] shadow-md rounded flex flex-col gap-2 hover:cursor-pointer border"  *ngFor="let subjectCards of pendingTasks"  (click)="viewSubjectDetails(subjectCards?.subjectId , subjectCards?.teacherId)">
               <div class="bg-[--menu-select-bg] flex w-full">
                 <div class="text-xs font-bold font-sans py-3 mx-auto w-fit">{{subjectCards?.subjectName}}</div>

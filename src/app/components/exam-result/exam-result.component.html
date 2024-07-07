@@ -18,9 +18,9 @@
             <div class="p-2 !pb-0 text-[--dashoard-text-color]  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex  !text-[14px]" (click)="selectedTab = tab?.tab;" [ngClass]="{'tabChange': selectedTab == tab?.tab}">{{tab?.tabName}}</div>
           </div>
         </div>
-        <div class="p-3 tableWrap !max-h-[395px] overflow-auto" *ngIf="selectedTab == 1">
+        <div class="p-3 tableWrap calculateMaxHeight overflow-auto" *ngIf="selectedTab == 1">
           <div class="flex flex-wrap gap-3 w-full" >
-            <div class="w-[23%] h-[180px] bg-[--contrast-base-color] shadow-md rounded flex flex-col gap-2 hover:cursor-pointer border"  *ngFor="let subjectCards of activeSubjects"  (click)="viewSubjectDetails(subjectCards?.subjectId , subjectCards?.teacherId)">
+            <div class="w-[23%] h-[150px] bg-[--contrast-base-color] shadow-md rounded flex flex-col gap-2 hover:cursor-pointer border"  *ngFor="let subjectCards of activeSubjects"  (click)="viewSubjectDetails(subjectCards?.subjectId , subjectCards?.teacherId)">
               <div class="bg-[--menu-select-bg] flex w-full">
                 <div class="text-xs font-bold font-sans py-3 mx-auto w-fit">{{subjectCards?.name}}</div>
               </div>
@@ -32,7 +32,7 @@
             </div>
           </div>
         </div>
-        <div class="p-3 tableWrap  !max-h-[395px] overflow-auto" *ngIf="selectedTab == 2">
+        <div class="p-3 tableWrap calculateMaxHeight overflow-auto" *ngIf="selectedTab == 2">
           <div class="flex flex-col gap-2">
             <!-- Assignment Card -->
             <mat-accordion *ngFor="let mat of previousCourses; let i = index">

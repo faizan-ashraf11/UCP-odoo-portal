@@ -1,9 +1,15 @@
 .calculateHeight{
-  height: 535px;
+  height: calc(100vh - 80px);
 }
 .calculateInnerCardHeight{
   height: 420px;
   overflow: auto;
+}
+.calculateMaxHeight{
+  max-height: calc(100vh - 170px);
+}
+.calcWidth{
+  width: calc(100% - 17px);
 }
 .widthTable100 {
   width: 100%;
@@ -36,4 +42,10 @@
 .menuClosedWeek{
   width: 170px;
   transition-duration: 0.5s;
+}
+
+@media (min-width: 1100px) and (max-width: 1400px) {
+  .setLeft{
+    margin-left: 46px !important;
+  }
 }

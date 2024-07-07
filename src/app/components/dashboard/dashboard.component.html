@@ -8,7 +8,7 @@
     </div>
     <div class="flex flex-row w-full">
       <div class="flex flex-wrap gap-3 w-full" >
-        <div class="w-[23%] h-[180px] bg-[--contrast-base-color] shadow-md rounded flex flex-col gap-2 hover:cursor-pointer p-3"  *ngFor="let subjectCards of subjects">
+        <div class="w-[23%] h-[180px] bg-[--contrast-base-color] shadow-md rounded flex flex-col gap-2 hover:cursor-pointer p-3 cardResponsiveness"  *ngFor="let subjectCards of subjects">
           <div class="text-sm font-bold font-sans mx-auto">{{subjectCards?.name}}</div>
           <div class="text-sm font-semibold font-sans underline text-[--base-color]">{{subjectCards?.teacherName}}</div>
           <div class="text-sm font-semibold font-sans"><span class="text-sm font-bold text-[--dashoard-text-color] font-sans">Projected Grade: </span>{{subjectCards?.cgpa}}</div>

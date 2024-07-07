@@ -6,3 +6,7 @@
     display: none !important;
   }
 }
+.lowerCardHeight{
+  height: calc(100vh - 340px);
+  max-height: calc(100vh - 340px);
+}

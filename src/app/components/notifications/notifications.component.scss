@@ -1,6 +1,10 @@
 .calculateHeight{
-  height: 450px;
+  height: calc(100vh - 170px);
 }
 .text-minor{
   font-size: 10px;
+}
+.calculateInnerCardHeight{
+  height: calc(100vh - 171px);
+  overflow: auto;
 }

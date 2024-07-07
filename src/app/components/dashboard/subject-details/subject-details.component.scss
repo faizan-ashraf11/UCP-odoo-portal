@@ -5,9 +5,9 @@
   color: var(--base-color) !important;
 }
 .calculateHeight{
-  height: 450px;
+  height: calc(100vh - 170px);
 }
 .calculateInnerCardHeight{
-  height: 370px;
+  height: calc(100vh - 260px);
   overflow: auto;
 }

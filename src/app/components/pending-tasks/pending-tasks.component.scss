@@ -1,3 +1,6 @@
 .calculateHeight{
-  height: 450px;
+  height: calc(100vh - 170px);
+}
+.maxHeight{
+  max-height: calc(100vh - 200px);
 }
