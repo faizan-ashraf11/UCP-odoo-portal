@@ -1,28 +1,18 @@
 .calculateHeight{
   height: calc(100vh - 80px);
 }
-.calculateInnerCardHeight{
-  height: 420px;
-  overflow: auto;
-}
 .calculateMaxHeight{
-  max-height: calc(100vh - 170px);
+  max-height: calc(100vh - 100px);
 }
 .calcWidth{
-  width: calc(100% - 17px);
+  width: calc(100%);
 }
-.widthTable100 {
-  width: 100%;
+.calcWidthWeek{
+  width: calc(100% - 200px);
 }
 .widthTable80 {
-  width: 80%;
-}
-.setBorder{
-  border-left: 1px solid #d1d5db !important;
-}
-.MaxHeight{
-  max-height: 400px;
-  overflow: auto;
+  width: calc(100% - 180px);
+  transition: 0.3s;
 }
 .calculateEachSUbjectHeight{
   height: calc(100% - 10px);
@@ -42,10 +32,4 @@
 .menuClosedWeek{
   width: 170px;
   transition-duration: 0.5s;
-}
-
-@media (min-width: 1100px) and (max-width: 1400px) {
-  .setLeft{
-    margin-left: 46px !important;
-  }
 }

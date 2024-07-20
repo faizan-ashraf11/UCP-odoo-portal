@@ -85,7 +85,11 @@ button {
     padding-right: 10rem !important;
   }
   .imageResponsive{
-    width: 500px !important;
-    height: 338px !important;
+    width: calc(100% - 10px) !important;
+    height: calc(100% - 30px) !important;
   }
+}
+.imageResponsive{
+  width: calc(100% - 10px) !important;
+  height: calc(100% - 30px) !important;
 }

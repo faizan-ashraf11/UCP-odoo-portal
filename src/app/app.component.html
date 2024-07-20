@@ -1,13 +1,16 @@
-<div class="flex flex-row !bg-[--screen-back-color] h-screen overflow-hidden" *ngIf="authentication">
+<div class="flex flex-row !bg-[--screen-back-color] h-screen lg:!overflow-hidden " *ngIf="authentication" [ngClass]="{'overflow-auto': showMenu , 'overflow-hidden': !showMenu}">
   <!-- Left Side Menu -->
-  <div class="bg-[--contrast-base-color] border-r border-gray-300 h-screen !min-w-[180px] !max-w-[180px] flex flex-col rounded-r-md" [ngClass]="{'MenuClose' : showMenu , 'MenuOpen' : !showMenu}">
+  <div class="bg-[--contrast-base-color] border-r border-gray-300 h-screen xs:!min-w-[180px] xs:!max-w-[180px] w-screen flex flex-col rounded-r-md" [ngClass]="{'MenuClose' : showMenu , 'MenuOpen' : !showMenu}">
+    <div *ngIf="!showMenu" class="block xs:!hidden  w-fit ml-auto mr-5">
+      <span nz-icon nzType="menu-fold" nzTheme="outline" class="text-[--base-color] text-lg hover:cursor-pointer" (click)="showMenuTrue()"></span>
+    </div>
     <div class="flex flex-row justify-center items-center" >
         <img src="{{logoAddress}}" alt="{{uniName}}" class="w-[70px] h-[70px] mixBlend">
         <span class="font-serif text-[0.75rem] font-bold">{{uniName}}</span>
     </div>
     <div class=" gap-2 flex flex-col my-3 ml-2">
       <div *ngFor="let menu of menuArray" class="flex flex-col">
-        <div class=" flex flex-row text-sm gap-2 items-center muted text-[--menu-text-color]  hover:cursor-pointer p-[0.5rem] rounded-tl-md rounded-bl-md hover:bg-[--menu-hover]" [ngClass]="{'!bg-[--menu-select-bg] !text-[--base-color] !shadow-2xl !z-10':  ('/'+menu?.path) == router.url}" (click)="selectedMenu = menu?.menuNo;" [routerLink]="['./' ,menu?.path]"  >
+        <div class=" flex flex-row text-sm gap-2 items-center muted text-[--menu-text-color]  hover:cursor-pointer p-[0.5rem] rounded-tl-md rounded-bl-md hover:bg-[--menu-hover]" [ngClass]="{'!bg-[--menu-select-bg] !text-[--base-color] !shadow-2xl !z-10':  ('/'+menu?.path) == router.url}" (click)="selectMenu(menu);"  >
           <span nz-icon [nzType]="menu?.icon" nzTheme="outline" class=" font-semibold"></span>
           <span class="">{{menu?.name}}</span>
         </div>
@@ -16,7 +19,7 @@
 
   </div>
   <!-- Right Side Menu -->
-  <div class="w-full">
+  <div class="w-full"  [ngClass]="{'xs:block hidden': !showMenu}">
     <!-- Top Bar -->
     <div class="w-full h-[50px] bg-[--contrast-base-color] rounded-md border flex flex-row p-1 items-center">
       <div class="w-full text-sm ml-3">

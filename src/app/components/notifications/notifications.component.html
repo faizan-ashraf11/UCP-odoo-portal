@@ -14,17 +14,17 @@
     <div class="flex flex-row w-full">
       <div class="w-full  bg-[--contrast-base-color] rounded-md border shadow-md calculateHeight">
         <div class="flex flex-row p-3 w-full calculateInnerCardHeight">
-          <div class="flex w-10/12 gap-3 flex-col">
+          <div class="flex lg:!w-10/12 w-full gap-3 flex-col">
             <div *ngFor="let not of notification"  class="flex flex-row gap-3 h-[40px] items-center bg-gray-100 rounded-md shadow-md w-full border hover:cursor-pointer" [routerLink]="['../dashboard/subject-detail' , not?.subjectId , not?.teacherId ]">
-              <nz-avatar [nzSize]="'large'" [nzShape]="'square'" style="background-color: var(--base-color)" [nzText]="not?.teacherName[0]"></nz-avatar>
-              <div class="flex flex-col w-2/12">
-                <span class="font-semibold flex">{{ not?.teacherName }}</span>
-                <span class="font-semibold text-minor muted">{{ not?.subject }}</span>
+              <nz-avatar [nzSize]="'large'" [nzShape]="'square'" style="background-color: var(--base-color)" [nzText]="not?.teacherName[0]" class="sm:!flex hidden items-center justify-center"></nz-avatar>
+              <div class="flex flex-col w-3/12">
+                <span class="font-semibold lg:!flex hidden">{{ not?.teacherName }}</span>
+                <span class="font-semibold lg:!text-[10px] text-xs  lg:text-[#8080809a] w-fit mx-auto text-center">{{ not?.subject }}</span>
               </div>
-              <span class="border-l-black pl-4 border-l">{{ not?.announcement }}</span>
+              <span class="border-l-black pl-4 border-l truncate">{{ not?.announcement }}</span>
             </div>
           </div>
-          <div class="flex w-2/12 p-3">
+          <div class="lg:!flex lg:w-2/12 p-3 hidden">
             <nz-timeline>
               <nz-timeline-item *ngFor="let not of notification" [nzColor]="not?.isNew? 'green' : 'gray'"><span class="h-[35px] flex text-[--base-color] font-semibold text-xs">{{ not.notificationDate | date}}</span></nz-timeline-item>
             </nz-timeline>

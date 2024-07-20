@@ -1,24 +1,26 @@
 <div class="h-[87vh] rounded-md m-3 !mx-6 shadow-md flex flex-row gap-2"  [ngClass]="{'screenWidthFull': tableWidth , 'screenWidthOpen': !tableWidth}">
-  <div class=" w-3/12 h-full bg-[--table-hover] rounded-md shadow-md border-2 !border-gray-300">
+  <div class=" lg:!w-3/12 w-full lg:!block hidden h-full bg-[--table-hover] rounded-md shadow-md border-2 !border-gray-300" [ngClass]="{'!block': (showContact) }">
+    <span (click)="showContacts()" nz-icon nzType="close-circle" nzTheme="outline" class="w-max ml-auto mr-3 lg:!hidden block hover:text-[--base-color] text-white text-xl hover:cursor-pointer"></span>
     <div *ngFor="let person of constact" class="flex flex-row gap-1.5 m-1.5 bg-[--contrast-base-color] rounded-md border h-[50px] hover:shadow-lg hover:cursor-pointer" (click)="selectContact(person?.chatId)">
-      <div class="w-2/12 m-0.5">
-        <img [src]="person?.imageUrl" alt="" class="w-full h-[45px] rounded-md bg-black border shadow-md">
+      <div class="lg:!w-2/12 xs:!w-1/12 w-2/12 m-0.5">
+        <img [src]="person?.imageUrl" alt="" class="w-full h-[45px]  rounded-md bg-black border shadow-md">
       </div>
-      <div class="flex flex-row items-center w-10/12">
+      <div class="flex flex-row items-center lg:!w-10/12 w-11/12">
         <span class="font-semibold w-9/12 text-xs">{{ person?.name || '-' }}</span>
         <span class="text-xs w-3/12 justify-end flex pr-2">{{ (person?.lastSeen  | date: 'HH:mm') || '-' }}</span>
       </div>
     </div>
   </div>
-  <div class=" w-9/12 h-full bg-[--table-hover] rounded-md shadow-md border-2 !border-gray-300 flex flex-col">
+  <div class=" lg:!w-9/12 w-full h-full bg-[--table-hover] rounded-md shadow-md border-2 !border-gray-300 flex flex-col" [ngClass]="{'hidden': showContact && (screenWidth < 1024)}">
     <div class="bg-[--contrast-base-color] w-full h-[60px] rounded-t-md border-2 !border-gray-300 flex flex-row">
-      <div class="w-1/12 m-0.5">
-        <img [src]="chatUrl" alt="" class="h-[45px] w-[45px] rounded-md bg-black border shadow-md ml-2">
+      <div class="sm:!w-1/12 w-2/12 m-0.5">
+        <img [src]="chatUrl" alt="" class="h-[45px] w-[45px] rounded-md bg-black border shadow-md">
       </div>
       <div class="flex flex-col justify-center h-full w-fit">
         <span class="font-semibold text-base flex w-fit">{{ contactName }}</span>
         <span class="font-semibold text-minor muted w-fit">{{ constactSubject }}</span>
       </div>
+      <span (click)="showContacts()" nz-icon nzType="wechat" nzTheme="outline" class="w-max ml-auto mr-3 lg:!hidden block hover:text-[--base-color] text-4xl hover:cursor-pointer"></span>
     </div>
     <div class="w-full chatHeight">
 

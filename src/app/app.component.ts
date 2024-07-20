@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   showMenu: any = false;
   profileName : any = "Faizan Ashraf";
   notification: any[] = [];
-  authentication: any ;
+  authentication: any = true;
   subscription!: Subscription;
 
   constructor(
@@ -39,10 +39,10 @@ export class AppComponent implements OnInit {
     private notificationService: NotificationService,
     private matDialog: MatDialog
   ){
-    this.authentication = this.loginService?.isAuthenticated;
-    if(!this.authentication){
-      this.router.navigate(['./login']);
-    }
+    // this.authentication = this.loginService?.isAuthenticated;
+    // if(!this.authentication){
+    //   this.router.navigate(['./login']);
+    // }
   }
   ngOnInit(): void {
     this.getMenu();
@@ -106,5 +106,9 @@ export class AppComponent implements OnInit {
       if (action) {
       }
     });
+  }
+  selectMenu(menu: any){
+    this.selectedMenu = menu?.menuNo;
+    this.router.navigate(["./",menu?.path]);
   }
 }

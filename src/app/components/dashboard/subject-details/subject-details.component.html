@@ -14,9 +14,9 @@
     <div class="flex flex-row w-full">
       <div class="w-full  bg-[--contrast-base-color] rounded-md border shadow-md calculateHeight">
         <!-- Tabs -->
-        <div class="flex flex-row gap-1 text-base font-sans border-b-2 border-gray-200 p-2">
+        <div class="flex flex-row gap-1 text-base font-sans border-b-2 border-gray-200 p-2 overflow-auto">
           <div *ngFor="let tab of tabs">
-            <div class="p-2 !pb-0 text-[--dashoard-text-color]  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex !text-[14px]" (click)="selectedTab = tab?.tab;" [ngClass]="{'tabChange': selectedTab == tab?.tab}">{{tab?.tabName}}</div>
+            <div class="p-2 !pb-0 text-[--dashoard-text-color]  font-sans font-semibold hover:cursor-pointer border-b-2 border-transparent flex !text-[14px] w-max" (click)="selectedTab = tab?.tab;" [ngClass]="{'tabChange': selectedTab == tab?.tab}">{{tab?.tabName}}</div>
           </div>
         </div>
         <!-- Announcement Area -->

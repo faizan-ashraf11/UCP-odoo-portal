@@ -1,7 +1,7 @@
-<div class="flex flex-col m-3 !mx-28 gap-2.5 overflow-hidden">
-  <div class="flex flex-row gap-3">
+<div class="flex flex-col m-3 lg:!mx-28 md:mx-10 xs:mx-3 gap-2.5 overflow-hidden">
+  <div class="flex lg:!flex-row flex-col gap-3">
     <!-- Person Intro -->
-    <div class="flex flex-col w-4/12 bg-[--contrast-base-color] rounded-md h-[250px] !p-4 gap-2 items-center">
+    <div class="flex flex-col lg:!w-4/12 w-full bg-[--contrast-base-color] rounded-md h-[250px] !p-4 gap-2 items-center">
       <img [src]="userProfile?.imageUrl" alt="" class="w-24 h-24 rounded-full">
       <div class="font-semibold tracking-wider gap-2 flex flex-row justify-center items-center w-[80%]">
         <span nz-icon nzType="user" nzTheme="outline" class="font-bold"></span>
@@ -22,7 +22,7 @@
       </nz-upload>
     </div>
     <!-- Personal Detail -->
-    <div class="flex flex-col w-8/12  bg-[--contrast-base-color] rounded-md h-[250px] p-4 gap-2">
+    <div class="flex flex-col lg:!w-8/12 w-full  bg-[--contrast-base-color] rounded-md h-[250px] p-4 gap-2">
       <span class="flex font-semibold text-xl">Personal Details</span>
       <div class="flex flex-wrap w-full gap-2">
         <div class="flex flex-col w-[48%] gap-2">
@@ -43,7 +43,7 @@
         </div>
         <div class="flex flex-col w-[48%] gap-2">
           <span class="flex text-xs muted font-bold tracking-widest">Email:</span>
-          <span class="flex ml-16 font-semibold">{{ personalDetails?.emailAddress }}</span>
+          <span class="flex ml-16 font-semibold truncate">{{ personalDetails?.emailAddress }}</span>
         </div>
         <div class="flex flex-col w-[48%] gap-2">
           <span class="flex text-xs muted font-bold tracking-widest">Password:</span>
@@ -65,9 +65,9 @@
       </div>
     </div>
   </div>
-  <div class="flex flex-row gap-3">
+  <div class="flex lg:!flex-row flex-col gap-3">
     <!-- Certified Skills -->
-    <div class="flex flex-col w-6/12 bg-[--contrast-base-color] rounded-md lowerCardHeight hover:!overflow-auto overflow-hidden !p-4 gap-2.5">
+    <div class="flex flex-col lg:!w-6/12 w-full bg-[--contrast-base-color] rounded-md lowerCardHeight hover:!overflow-auto overflow-hidden !p-4 gap-2.5">
       <div class="flex flex-row mb-1">
         <span class="flex font-semibold text-xl">Skills:</span>
         <!-- <button class="py-1 px-3 bg-[#5c82ff] rounded-md text-[--text-color] font-semibold ml-auto tracking-widest text-base flex items-center gap-2"><span nz-icon nzType="plus-circle" nzTheme="outline"></span> <span>Add Skills</span></button> -->
@@ -87,10 +87,10 @@
       </div>
     </div>
     <!-- Society Certification -->
-    <div class="flex flex-col w-6/12  bg-[--contrast-base-color] rounded-md lowerCardHeight hover:!overflow-auto overflow-hidden !p-4 gap-2.5">
+    <div class="flex flex-col lg:!w-6/12 w-full  bg-[--contrast-base-color] rounded-md lowerCardHeight hover:!overflow-auto overflow-hidden !p-4 gap-2.5">
       <span class="flex font-semibold text-xl mb-1">Society Certifications:</span>
       <div class="flex flex-wrap w-full gap-2 justify-center items-center h-full">
-        <div class="w-4/12 flex flex-col gap-2 items-center justify-center" *ngFor="let cert of societyCertification">
+        <div class="sm:!w-4/12 w-full flex flex-col gap-2 items-center justify-center" *ngFor="let cert of societyCertification">
           <span class="text-xs font-semibold tracking-widest muted flex text-center">{{ cert?.certificationPost }}</span>
           <img [src]="cert?.imageUrl" [alt]="cert?.certificationPost" class="w-16 h-16 rounded-md border shadow-md mb-1">
         </div>

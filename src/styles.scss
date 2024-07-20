@@ -61,7 +61,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --tw-bg-opacity: 1; background-color: rgb(229 231 235 / var(--tw-bg-opacity)); }
 
 .muted{
-  color: rgba(128, 128, 128, 0.603);
+  color: #8080809a;
 }
 
 
@@ -120,7 +120,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .dropDownMenuList{
-  width: 400px;
+  width: 350px;
   box-shadow: 0px 0px 0px 1px rgba(152, 161, 179, 0.1), 0px 15px 35px -5px rgba(17, 24, 38, 0.15), 0px 5px 15px rgba(0, 0, 0, 0.08);
   border-radius: 6px;
   & li{
@@ -151,4 +151,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .text-minor{
   font-size: 10px;
+}
+@media (min-width: 399px) {
+  .xxs\:element {
+      /* styles for xxs */
+  }
 }

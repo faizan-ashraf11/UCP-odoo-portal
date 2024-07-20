@@ -20,7 +20,7 @@
         </div>
         <div class="p-3 tableWrap calculateMaxHeight overflow-auto" *ngIf="selectedTab == 1">
           <div class="flex flex-wrap gap-3 w-full" >
-            <div class="w-[23%] h-[150px] bg-[--contrast-base-color] shadow-md rounded flex flex-col gap-2 hover:cursor-pointer border"  *ngFor="let subjectCards of activeSubjects"  (click)="viewSubjectDetails(subjectCards?.subjectId , subjectCards?.teacherId)">
+            <div class="xl:!w-[23%] w-[280px] h-[150px] bg-[--contrast-base-color] shadow-md rounded flex flex-col gap-2 hover:cursor-pointer border"  *ngFor="let subjectCards of activeSubjects"  (click)="viewSubjectDetails(subjectCards?.subjectId , subjectCards?.teacherId)">
               <div class="bg-[--menu-select-bg] flex w-full">
                 <div class="text-xs font-bold font-sans py-3 mx-auto w-fit">{{subjectCards?.name}}</div>
               </div>
@@ -47,10 +47,10 @@
                   </mat-panel-title>
                   <mat-panel-description>
                     <div class="flex flex-row gap-16 items-center">
-                      <div class="flex w-fit textBase"><span class="font-semibold font-serif">Grade Points:</span>&nbsp; {{ mat?.gradePoints }}</div>
-                      <div class="flex w-fit textBase"><span class="font-semibold font-serif">Subject Credit Hours:</span>&nbsp; {{ mat?.subjectCreditHours }}</div>
-                      <div class="flex w-fit textBase"><span class="font-semibold font-serif">Total Credit Hours:</span>&nbsp; {{ mat?.totalCreditHours }}</div>
-                      <div class="flex w-fit textBase"><span class="font-semibold font-serif">SGPA:</span>&nbsp; {{ mat?.SGPA }}</div>
+                      <div class="xs:!flex w-fit textBase hidden"><span class="font-semibold font-serif">Grade Points:</span>&nbsp; {{ mat?.gradePoints }}</div>
+                      <div class="md:!flex w-fit textBase hidden"><span class="font-semibold font-serif">Subject Credit Hours:</span>&nbsp; {{ mat?.subjectCreditHours }}</div>
+                      <div class="lg:!flex w-fit textBase hidden"><span class="font-semibold font-serif">Total Credit Hours:</span>&nbsp; {{ mat?.totalCreditHours }}</div>
+                      <div class="xl:!flex w-fit textBase hidden"><span class="font-semibold font-serif">SGPA:</span>&nbsp; {{ mat?.SGPA }}</div>
                     </div>
                   </mat-panel-description>
                   </mat-expansion-panel-header>

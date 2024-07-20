@@ -21,6 +21,8 @@ export class LiveChatComponent implements OnInit{
   chatUrl: any = '/assets/bot1.png';
   contactName: any = 'Lalaen Sultan';
   constactSubject: any = 'Datastructure and Algorithm - Lab';
+  showContact: boolean = false;
+  screenWidth: any;
   constact : any[] = [
     { name: 'Lalaen Sultan' , lastMessage: '' , lastSeen: new Date() , imageUrl: '/assets/bot1.png' , chatId: 1 , subject:'Datastructure and Algorithms - Lab' },
     { name: 'Dr Nabeel Sabir Khan' , lastMessage: '' , lastSeen: new Date() , imageUrl: '/assets/bot2.jpg' , chatId: 2 , subject:'Datastructure and Algorithms' },
@@ -37,15 +39,22 @@ export class LiveChatComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
+    console.log('screenWidth' , this.screenWidth);
     this.subscription = this.loginService.actionObservable.subscribe(action => {
       this.tableWidth = action;
     });
   }
   selectContact(contactId : any){
-    debugger
     const contact = this.constact.find(e=> e.chatId == contactId);
     this.chatUrl = contact?.imageUrl
     this.contactName = contact?.name;
     this.constactSubject = contact?.subject;
+    if(this.screenWidth < 1024){
+      this.showContacts();
+    }
+  }
+  showContacts(){
+    this.showContact = !this.showContact;
   }
 }
