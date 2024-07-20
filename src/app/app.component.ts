@@ -32,6 +32,8 @@ export class AppComponent implements OnInit {
   notification: any[] = [];
   authentication: any = true;
   subscription!: Subscription;
+  screenWidth: any;
+  screenHeight: any;
 
   constructor(
     private loginService: LoginService,
@@ -51,6 +53,8 @@ export class AppComponent implements OnInit {
     this.subscription = this.loginService.loginObserveable.subscribe(action => {
       this.authentication = action;
     });
+    this.screenWidth = window.innerWidth;
+    this.screenHeight = window.innerHeight;
   }
 
   showMenuTrue(){
@@ -71,9 +75,9 @@ export class AppComponent implements OnInit {
   openAboutUs(){
     this.matDialog.open(AboutUsComponent , {
       autoFocus: false,
-      minWidth: "950px",
-      maxWidth: "950px",
-      maxHeight: "85vh",
+      minWidth: this.screenWidth>1024?'950px': this.screenWidth>600?'550px':'350px',
+      maxWidth: this.screenWidth>1024?'950px': this.screenWidth>600?'550px':'350px',
+      maxHeight: "500px",
       minHeight: "500px",
       disableClose: false,
     }).afterClosed().subscribe(action => {
@@ -84,10 +88,10 @@ export class AppComponent implements OnInit {
   openContactUs(){
     this.matDialog.open(ContactUsComponent , {
       autoFocus: false,
-      minWidth: "950px",
-      maxWidth: "950px",
-      maxHeight: "300px",
-      minHeight: "300px",
+      minWidth: this.screenWidth>1024?'950px': this.screenWidth>600?'550px':'350px',
+      maxWidth: this.screenWidth>1024?'950px': this.screenWidth>600?'550px':'350px',
+      maxHeight: this.screenWidth>1024?'300px': '500px',
+      minHeight: this.screenWidth>1024?'300px': '500px',
       disableClose: false,
     }).afterClosed().subscribe(action => {
       if (action) {
@@ -97,10 +101,10 @@ export class AppComponent implements OnInit {
   openFeedback(){
     this.matDialog.open(FeedbackComponent , {
       autoFocus: false,
-      minWidth: "650px",
-      maxWidth: "650px",
-      maxHeight: "480px",
-      minHeight: "480px",
+      minWidth: this.screenWidth>1024?'650px': this.screenWidth>600?'550px':'350px',
+      maxWidth: this.screenWidth>1024?'650px': this.screenWidth>600?'550px':'350px',
+      maxHeight: this.screenWidth>1024?'480px': '550px',
+      minHeight: this.screenWidth>1024?'480px': '550px',
       disableClose: false,
     }).afterClosed().subscribe(action => {
       if (action) {
