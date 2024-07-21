@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   showMenu: any = false;
   profileName : any = "Faizan Ashraf";
   notification: any[] = [];
-  authentication: any = true;
+  authentication: any = false;
   subscription!: Subscription;
   screenWidth: any;
   screenHeight: any;
@@ -41,10 +41,10 @@ export class AppComponent implements OnInit {
     private notificationService: NotificationService,
     private matDialog: MatDialog
   ){
-    // this.authentication = this.loginService?.isAuthenticated;
-    // if(!this.authentication){
-    //   this.router.navigate(['./login']);
-    // }
+    this.authentication = this.loginService?.isAuthenticated;
+    if(!this.authentication){
+      this.router.navigate(['./login']);
+    }
   }
   ngOnInit(): void {
     this.getMenu();
